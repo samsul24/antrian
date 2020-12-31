@@ -10,7 +10,7 @@ class AdminClient extends CI_Controller
         parent::__construct();
 		$this->load->library('curl');
         $this->load->model('admin_model');
-        
+            
 
     }
 
@@ -22,15 +22,7 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/index', $data, FALSE);
         $this->load->view('footer1', $data, FALSE);
     }
-    public function materi()
-    {
-        $data['materi'] = $this->admin_model->get1();
-        $data['title'] = 'Katalog';
-        $this->load->view('header4', $data, FALSE);
-        $this->load->view('materi/subindexhabitat', $data, FALSE);
-        $this->load->view('footer', $data, FALSE);
-
-    }
+   
     
     public function tambah()
     {

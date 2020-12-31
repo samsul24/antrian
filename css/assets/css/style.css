@@ -15,12 +15,13 @@ body {
 .card {
   background-color: rgb(255, 255, 255);
   color: rgb(25, 25, 25);
-  margin-top: 100px;
+  margin-top: 400px;
   margin-left: 250px;
   margin-right: 250px;
+  margin-bottom: 250px;
 }
 .card.login {
-  width: 300px;
+  width: 400px;
 }
 .card.registration{
   width: 500px;

@@ -15,11 +15,11 @@
   <script src="<?php echo base_url() ?>css/assets/js/main.js"></script>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Plant Educataion</title>
+<title>KEMENAG KOTA MALANG </title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
-<link rel="icon" href="<?php echo base_url() ?>css/assets/img/12.png">
+<link rel="icon" href="<?php echo base_url() ?>css/assets/img/logo-kecil.png">
 <link href="<?php echo base_url() ?>css/assets/img1/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Required meta tags -->
@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
   <!-- External CSS -->
   <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/style3.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/style4.css">
   <!-- <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/animate.css/animate.min.css">
@@ -52,7 +52,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Plant<span class="color-b">Education</span></a>
+      <a class="navbar-brand text-brand" href="index.html">KEMENAG<span class="color-b"> KOTA MALANG</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>

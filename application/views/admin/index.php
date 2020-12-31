@@ -1,4 +1,4 @@
-<?php if($this->session->userdata('level')!='admin'){redirect('login');};?>
+<?php if($this->session->userdata('1d_user_role')!= 1){redirect('login');};?>
     
     <div class="cc">
 	<h1 class="mt-2 mb-3 font-weight-bold">Dasboard admin</h1>
@@ -52,13 +52,4 @@
   color: #eee;
 }
 </style>
-</head>
-<div class="container">
-  <img src="<?php echo base_url(); ?>css/assets/img/agent-5.jpg" alt="Avatar" class="image">
-  <div class="overlay">
-  <a href="#" class="icon" title="User Profile">
-    <i class="fa fa-user"></i>
-  </a>
-  </div>
-</div>
 

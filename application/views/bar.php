@@ -43,31 +43,37 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo site_url(); ?>soaluser" class="nav-link text-white">
+						<a href="<?php echo site_url(); ?>userclient/" class="nav-link text-white">
 							<i class="fa fa-archive" aria-hidden="true"></i> &nbsp;
-							<span> Atur Soal </span>
+							<span> User </span>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?php echo site_url(); ?>materiuser" class="nav-link text-white">
 							<i class="fas fa-edit" aria-hidden="true"></i> &nbsp;
-							<span> Atur Materi </span>
+							<span> User Role </span>
 						</a>
 					</li>
 					
 					<li class="nav-item">
 						<a href="<?php echo site_url(); ?>userclient" class="nav-link active text-white">
 							<i class="fa fa-address-book" aria-hidden="true"></i> &nbsp;
-							<span> Atur User </span>
+							<span> Layanan </span>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?php echo site_url(); ?>gambaruser" class="nav-link active text-white">
 							<i class="fas fa-camera" aria-hidden="true"></i> &nbsp;
-							<span> Galeri </span>
+							<span> Laporan </span>
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?php echo site_url(); ?>gambaruser" class="nav-link active text-white">
+							<i class="fas fa-camera" aria-hidden="true"></i> &nbsp;
+							<span> Log </span>
+						</a>
+					</li>
+					<!-- <li class="nav-item">
 						<a href="" class="nav-link active text-white av">
 							<i class="" aria-hidden="true"></i> &nbsp;
 							<span> Report </span>
@@ -84,7 +90,7 @@
 							<i class="fas fa-clipboard" aria-hidden="true"></i> &nbsp;
 							<span> Hasil Ujian </span>
 						</a>
-					</li>
+					</li> -->
 					<!-- <li class="nav-item">
 						<a href="<?= base_url().'admin/blog' ?>" class="nav-link active text-white">
 							<i class="fa fa-blog" aria-hidden="true"></i> &nbsp;

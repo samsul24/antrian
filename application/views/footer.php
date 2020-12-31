@@ -10,15 +10,15 @@
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Adalah situs web yang menyediakan pembelajaran tentang keaneragaman tumbuhan yang diperuntukkan untuk siswa sekolah dasar
-              </p>
+              Bangsa Indonesia adalah bangsa yang religius. Hal tersebut tercermin baik dalam kehidupan bermasyarakat 
+              maupun dalam kehidupan bernegara. Di lingkungan masyarakat-terlihat terus meningkat kesemarakan dan 
+              kekhidmatan kegiatan keagamaan baik dalam bentuk ritual, maupun dalam bentuk sosial keagamaan
+                 </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
                   <!-- <span class="color-text-a">Phone .</span> contact@example.com</li> -->
-                <li class="color-a">
-                  <span class="color-text-a">Email .</span>PlantEducation@gmail.com</li>
               </ul>
             </div>
           </div>
@@ -57,15 +57,18 @@
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">About me</h3>
+              <h3 class="w-title-a text-brand">Kontak</h3>
             </div>
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="<?php echo site_url(); ?>login/footer">Samsul Islam B.S</a>
+                  <i class="fa fa-angle-right"></i> <a href="<?php echo site_url(); ?>login">Jalan Raya Bandara Juanda No.26, Telp. (031) 8686014, E-mail : kanwiljatim@kemenag.go.id</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="<?php echo site_url(); ?>login/footer2">Bethania Dwi R</a>
+                  <i class="fa fa-angle-right"></i> <a href="<?php echo site_url(); ?>login">Telepon - (031) 8686014</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="<?php echo site_url(); ?>login">kanwiljatim@kemenag.go.id</a>
                 </li>
                 <!-- <li class="item-list-a">
                   <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>

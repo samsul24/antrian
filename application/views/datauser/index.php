@@ -1,6 +1,6 @@
     <?php if($this->session->userdata('level')!='admin'){redirect('login');};?>
     <div class="cc">
-        <h1 class="mt-2 mb-3 font-weight-bold">Data User</h1>
+        <h1 class="mt-2 mb-3 font-weight-bold">User</h1>
         <div class="mb-3">
                 <a href="<?php echo site_url(); ?>userclient/post" class="btn btn-primary">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Tambah Data </a>
@@ -9,7 +9,7 @@
             <a href="<?php echo site_url(); ?>adminclient/verification" class="btn btn-success">
             <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Verification</a>
     </div>
-	<div class="tableSize">
+	<!-- <div class="tableSize">
 		<table class="table" id="myTable">
 			<thead class="thead-dark">
 				<tr>
@@ -40,7 +40,7 @@
                     </tr>
                  <?php endforeach; ?>
                 </tbody>
-            </table>
+            </table> -->
                   
                             </div>
                         </div>

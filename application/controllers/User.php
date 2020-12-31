@@ -16,61 +16,14 @@ class User extends REST_Controller
 
     function index_get()
     {
-        $id = $this->get('id');
+        $id = $this->get('id_user');
         if ($id == '') {
-            $transactions = $this->db->get('login')->result();
+            $transactions = $this->db->get('user')->result();
         } else {
-            $this->db->where('id', $id);
-            $transactions = $this->db->get('login')->result();
+            $this->db->where('id_user', $id);
+            $transactions = $this->db->get('user')->result();
         }
         $this->response($transactions, 200);
     }
 
-    function index_post()
-    {
-        $data = array(
-            'nama'          => $this->post('nama'),
-            'username'         => $this->post('username'),
-            'password'         => $this->post('password'),
-			'level' => $this->post('level'),
-            
-        );
-        $insert = $this->db->insert('login', $data);
-        if ($insert) {
-            $this->response($data, 200);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
-    }
-
-    function index_put()
-    {
-        $id = $this->put('id');
-        $data = array(
-            'nama'          => $this->put('nama'),
-            'username'         => $this->put('username'),
-            'password'         => $this->put('password'),
-			'level' => $this->put('level'),
-
-        );
-        $this->db->where('id', $id);
-        $update = $this->db->update('login', $data);
-        if ($update) {
-            $this->response($data, 200);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
-    }
-
-    function index_delete()
-    {
-        $id = $this->delete('id');
-        $this->db->where('id', $id);
-        $delete = $this->db->delete('login');
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
-    }
 }
