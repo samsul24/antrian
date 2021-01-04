@@ -1,12 +1,9 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
-
     <div class="cc">
         <h1 class="mt-2 mb-3 font-weight-bold">User</h1>
         <div class="mb-3">
                 <a href="<?php echo site_url(); ?>userclient/post" class="btn btn-primary">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Tambah Data </a>
-
-                
             <a href="<?php echo site_url(); ?>adminclient/verification" class="btn btn-success">
             <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Verification</a>
     </div>
@@ -31,7 +28,6 @@
                         <td><?php echo $rows->nama; ?></td>
                         <td><?php echo $rows->id_instansi; ?></td>
                         <td>
-                                    
                             <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>
                             <a href="<?= base_url(); ?>userclient/delete/<?= $rows->id_user ;?>" class="btn btn-danger"
@@ -41,8 +37,7 @@
                     </tr>
                  <?php endforeach; ?>
                 </tbody>
-            </table>
-                  
+            </table>        
                             </div>
                         </div>
                     </div>
