@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php if($this->session->userdata('level')!='admin'){redirect('login');};?>
-      <?php if ($this->session->flashdata('result') != '') { ?>
-          <div class="alert alert-dark alert-dismissible fade show">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <?php echo $this->session->flashdata('result'); ?>
-          </div>
-      <?php
-      }
-      ?>
-<head>
+<?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
+  <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">

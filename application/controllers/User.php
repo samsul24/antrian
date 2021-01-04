@@ -18,12 +18,13 @@ class User extends REST_Controller
     {
         $id = $this->get('id_user');
         if ($id == '') {
-            $transactions = $this->db->get('user')->result();
+            $user = $this->db->get('user')->result();
         } else {
             $this->db->where('id_user', $id);
-            $transactions = $this->db->get('user')->result();
+            $user = $this->db->get('user')->result();
         }
-        $this->response($transactions, 200);
+        $this->response($user, 200);
     }
 
 }
+?>

@@ -8,7 +8,6 @@ public function get_user()
     {
         $this->db->select('id_user,username,password');
         $this->db->from('user');
-        // $this->db->where('id_role_user', 3);
         $query = $this->db->get();
         if ($query->num_rows() >= 0) {
             return $query->result_array();
@@ -16,4 +15,10 @@ public function get_user()
             return false;
         }
     }
+    function jum_user()
+    {
+            $data = $this->db->query("SELECT * from user");
+            return $data->result();
+        }
 }
+?>

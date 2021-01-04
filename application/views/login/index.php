@@ -1,5 +1,5 @@
+
 <div class="container-fluid mt-3">
-    <!-- <img src="<?php echo base_url(); ?>css/assets/img1/1.png" class="mx-auto d-block"  width="470px" height="300px"> -->
     <div class="row mt-3">
         <div class="col d-flex justify-content-center">
                     <?php if ($this->session->flashdata('result') != '') { ?>
@@ -9,11 +9,12 @@
                         </div>
                     <?php
                     }
+                    
                     ?>
                     <div class="card">
                     <div class="card-body login-card-body">
                     <img class="profile-img" src="<?=base_url();?>css/assets/img/logo-kecil.png"alt="" height="120px" style="display: block; margin: auto;"><br>
-                    <center> <p class="" >Welcome admin</p></center>
+                    <center> <p class="">Welcome admin</p></center>
                         <form action="<?php echo site_url() ?>login/log_process" class="needs-validation" method="POST">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="user" placeholder="Masukkan username" name="user" required>

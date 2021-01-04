@@ -1,55 +1,131 @@
-<?php if($this->session->userdata('1d_user_role')!= 1){redirect('login');};?>
-    
-    <div class="cc">
-	<h1 class="mt-2 mb-3 font-weight-bold">Dasboard admin</h1>
-            <div class="tableSize">
+<?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
+<div class="cc">
+  <div class="tableSize">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.container {
-  position: relative;
-  margin: left;
-  width: 100%;
-  max-width: 400px;
-}
+<link href='<?=base_url("assets/uploads/images/avatar.png"); ?>' rel='shortcut icon' type='image/x-icon' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/summernote/summernote-bs4.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+  <div class="content-wrapper" style="margin-left:-5px; margin-right:5px;">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark" ><i class="nav-icon fas fa-chart-line"></i> Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">admin</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
 
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+    <section class="content" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h1 style="font-size: 40px">
+						<?php echo $this->db->get('user')->num_rows('id_user_role', 1 ); ?>
+                </h1>
+                <p style="font-size: 30px">User</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .3s ease;
-  background-color:#2eca6a;
-}
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3 style="font-size: 40px">
+						<?php echo $this->db->get('user_role')->num_rows(); ?>
+            </h3>
+                <p style="font-size: 30px">User Role</p>
+              </div>
+              <div class="icon">
+              <i class="ion ion-person-add"></i>
 
-.container:hover .overlay {
-  opacity: 1;
-}
 
-.icon {
-  color: white;
-  font-size: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
 
-.fa-user:hover {
-  color: #eee;
-}
-</style>
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3 style="font-size: 40px">
+						<?php echo $this->db->get('layanan')->num_rows(); ?>
+            </h3>
+                <p style="font-size: 30px">Layanan</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
 
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3 style="font-size: 40px">
+						<?php echo $this->db->get('log')->num_rows(); ?>
+            </h3>
+                <p style="font-size: 30px">Log</p>
+              </div>
+              <div class="icon">
+              <i class="ion ion-thumbsup subdued"></i>
+
+
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+
+
+        
+            <div class="card bg-gradient-info" style="margin-left:7px">
+              <div class="card-header border-0" >
+                <h3 class="card-title" style="margin-right: 85px;">
+                <!-- style="margin-left:920px; margin-right:920px;" -->
+                  <i class="fas fa-th mr-1 "></i>
+                  Grafik 
+                </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+       
+              
+<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/adminlte.js"></script>
+<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/pages/dashboard.js"></script>
+
+</body>
