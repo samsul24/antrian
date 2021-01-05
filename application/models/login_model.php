@@ -12,6 +12,11 @@ class login_model extends CI_Model
         $this->db->limit(1);    
         return $query = $this->db->get('user', 1)->row();
     }
+    public function input_data($data)
+    {
+        $this->db->insert('user_online', $data);
+        // $this->session->set_flashdata('status', 'Registration success, please wait for verification');
+    }
 }
 
 /* End of file ModelName.php */

@@ -30,11 +30,6 @@ class AdminClient extends CI_Controller
         $this->load->view('footer', $data);
 
     }
-    public function index()
-	{
-		$data['user'] = $this->admin_model->jum_user();
-		$this->load->view('chart', $data);
-	}
     
 }
 ?>

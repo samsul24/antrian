@@ -16,9 +16,7 @@ class Login extends CI_Controller
   public function index()
   {
     $data['title'] = 'login';
-    $this->load->view('header1');
     $this->load->view('login/index', $data);
-    // $this->load->view('footer');
   }
 
 
@@ -50,7 +48,39 @@ class Login extends CI_Controller
     }
   }
     
+  public function reg()
+  {
+    $data['title'] = 'registrasi';
+    $this->load->view('header1', $data, FALSE);
+    $this->load->view('login/registrasi', $data, FALSE);
+    $this->load->view('footer', $data, FALSE);
+  }
 
+  public function reg_process()
+  {
+    $this->API = "http://localhost:8080/antrian/user";
+    $data = array(
+      'uid_sosmed'          => $this->input->post('uid_sosmed'),
+      'username'         => $this->input->post('username'),
+      'email'          => $this->input->post('email'),
+      'password'         => $this->input->post('password'),
+      'status'          => $this->input->post('status'),
+      'nama_user'          => $this->input->post('nama_user'),
+      'telepom'          => $this->input->post('telepom'),
+      'alamat'          => $this->input->post('alamat'),
+      'tgl_lhr_user'          => $this->input->post('tgl_lhr_user'),
+      'foto_user'          => $this->input->post('nama'),
+      'id_kota'          => $this->input->post('nama'),
+    );
+
+    $update =  $this->curl->simple_post($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
+    if ($update) {
+      $this->session->set_flashdata('result', 'Regsitrasi Berhasil,please wait for verification');
+    } else {
+      $this->session->set_flashdata('result', 'Registrasi Gagal');
+    }
+    redirect('login', 'refresh');
+  }
   public function out()
   {
     $this->session->sess_destroy();
