@@ -88,33 +88,18 @@
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-          <!-- <h1 style="margin-top: 5px;"><?php echo $nomor; ?></h1> -->
+          <h1 style="margin-top: 5px;"><?php echo 
+          $this->db->get('layanan')->num_rows(); ?>
+        </h1>
           </div>
       </div>
-      <!-- <?php if(!empty($this->session->userdata('id_user'))){ ?>
-        <div class="row" style="margin-top: 60px">
-          <div class="col-md-3" style="border: thin solid; ">
-            <h3><?php echo $poli_umum; ?></h3>
-            <H6>Poli Umum</H6>
-          </div>
-          <div class="col-md-3" style="border: thin solid; ">
-            <h3><?php echo $poli_gigi; ?></h3>
-            <H6>Poli Gigi</H6></div>
-          <div class="col-md-3" style="border: thin solid; ">
-            <h3><?php echo $poli_im; ?></h3>
-            <H6>Poli Imunisasi</H6></div>
-          <div class="col-md-3" style="border: thin solid; ">
-            <h3><?php echo $poli_tb; ?>
-            <H6>Poli Tuberculosis</H6></div>
-        </div>
-      <?php } ?> -->
       
       <?php if(empty($this->session->userdata('id_user'))){ ?>
         <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Kementrian Agama Kota Malang. 
         <br> Jika anda belum memiliki akun, silakan Registrasi terlebih dahulu.</h4>
-        <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
+        <!-- <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
           Registrasi
-        </button>
+        </button> -->
       <?php } ?>
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -196,7 +181,6 @@
 
         </div>
         <!-- /.row -->
-
       </div>
     <?php }else{ ?>
       <div class="container">
@@ -302,15 +286,6 @@
       </div>
     </div>
     </div>
-      <!-- About Section Button -->
-      <!-- <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
-          <i class="fas fa-download mr-2"></i>
-          Free Download!
-        </a>
-      </div> -->
-    <!-- </div>
-    </div> -->
   </section>
 
   
@@ -350,79 +325,7 @@
     </a>
   </div>
 
-  <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrasi</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo site_url(); ?>login/reg_process" method="post">
-
-            <div>
-                <label >Nomor KTP <sup>*</sup></label>
-                <input type="text" id="uid_sosmed" name="uid_sosmed" class="form-control" value="" placeholder="Nomor KTP" required="">
-            </div>
-
-            <div>
-               <label >Nama <sup>*</sup></label>
-               <input type="text" id="nama_user" name="nama_user" class="form-control" value="" placeholder="Nama" required="">
-            </div>
-
-            <!-- <div>
-              <label >Jenis Kelamin</label>
-              <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">
-              <option value="">Pilih</option>
-              <option value="Laki-Laki">Laki-Laki</option>
-              <option value="Perempuan">Perempuan</option>
-              </select>
-            </div> -->
-
-            <div>
-                <label >Tanggal Lahir <sup>*</sup></label>
-                <input type="date" id="tgl_lhr_user" name="tgl_lhr_user" class="form-control" value="" placeholder="Tanggal Lahir" required="">
-            </div>
-
-            <div>
-              <label >Alamat</label>
-              <textarea id="alamat" name="alamat" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-
-            <div>
-                <label >No Telephone</label>
-                <input type="telepon" id="telepon" name="telepon" class="form-control" value="" placeholder="No Telephone">
-            </div>
-            <div>
-                <label >Email</label>
-                <input type="email" id="email" name="email" class="form-control" value="" placeholder="Email">
-            </div>
-            <div>
-                <label >Username <sup>*</sup></label>
-                <input type="text" id="username" name="username" class="form-control" value="" placeholder="Username" required="">
-            </div>
-
-            <div>
-                <label >Password <sup>*</sup></label>
-                <input type="password" id="password" name="password" class="form-control" value="" placeholder="Password" required="">
-            </div>
-
-            <br><br>
-            <div align="right">
-            <!-- <a href="<?php //echo base_url() ?>"  >Registrasi</a> -->
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-          
-          </form>
-      </div>
-      
-    </div>
-  </div>
-</div>
+ 
 
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>

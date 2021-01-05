@@ -39,7 +39,7 @@
             <div class="small-box bg-info">
               <div class="inner">
               <h1 style="font-size: 40px">
-						<?php echo $this->db->get('user')->num_rows('id_user_role', 1 ); ?>
+						<?php echo $this->db->get('user')->num_rows(); ?>
                 </h1>
                 <p style="font-size: 30px">User</p>
               </div>

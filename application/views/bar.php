@@ -43,14 +43,14 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo site_url(); ?>materiuser" class="nav-link text-white">
+						<a href="<?php echo site_url(); ?>roleuserclient" class="nav-link text-white">
 							<i class="fas fa-user-plus" aria-hidden="true"></i> &nbsp;
 							<span> User Role </span>
 						</a>
 					</li>
 					
 					<li class="nav-item">
-						<a href="<?php echo site_url(); ?>userclient" class="nav-link active text-white">
+						<a href="<?php echo site_url(); ?>layananclient" class="nav-link active text-white">
 							<i class="fa  fa-tablet " aria-hidden="true"></i> &nbsp;
 							<span> Layanan </span>
 						</a>
@@ -69,7 +69,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo site_url(); ?>gambaruser" class="nav-link active text-white">
+						<a href="<?php echo site_url(); ?>logclient" class="nav-link active text-white">
 							<i class="fas fa-history" aria-hidden="true"></i> &nbsp;
 							<span> Log </span>
 						</a>
