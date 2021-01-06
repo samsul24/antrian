@@ -39,14 +39,14 @@
             <div class="small-box bg-info">
               <div class="inner">
               <h1 style="font-size: 40px">
-						<?php echo $this->db->get('user')->num_rows(); ?>
+						<?php echo $this->db->get('user')->num_rows(0); ?>
                 </h1>
                 <p style="font-size: 30px">User</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo site_url(); ?>userclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -63,7 +63,7 @@
 
 
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo site_url(); ?>roleuserclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -79,7 +79,7 @@
                 <i class="ion ion-stats-bars"></i>
 
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo site_url(); ?>layananclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -96,7 +96,7 @@
 
 
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo site_url(); ?>logclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 

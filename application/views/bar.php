@@ -23,9 +23,7 @@
 		<div class="card bg-dark text-white rounded-0" style="height:61.5rem">
 			<div class="card-header">
 				<span class="fa fa-home" style="font-size:2rem"></s>
-					<b>
-						<span style="font-size:2rem"><a> Dashboard</a></span>
-					</b>
+						<span style="font-size:2rem"><a class="" href="<?php echo site_url(); ?>adminclient" style="color:white;"> Dashboard</a></span>
 			</div>
 			<div class="card-body p-0">
 				<ul class="nav d-flex flex-column">

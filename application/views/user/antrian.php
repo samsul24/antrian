@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>KEMENAG Kota Malang </title>
+  <title>KEMENAG </title>
 
   <!-- Custom fonts for this theme -->
   <link href="<?php echo base_url('assets/user')?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,17 +46,17 @@
 <body id="page-top">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" ">
-    <div class="container" >
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Antrian KEMENAG</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" >
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Antrian Kemenag</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive" >
-        <ul class="navbar-nav ml-auto" >
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
           <?php if(empty($this->session->userdata('id_user'))) {?>
-            <li class="nav-item mx-0 mx-lg-1" >
+            <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#registrasi">Login</a>
             </li>
           <?php }else{?>
@@ -84,18 +84,40 @@
       
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-5" src="<?=base_url();?>css/assets/img/logo-kecil.png" alt=""><br>KEMENAG KOTA MALANG</h1><br>
+      <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-5" src="<?=base_url();?>css/assets/img/logo-kecil.png" alt=""><br> KEMENAG KOTA MALANG</h1><br>
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-          <h1 style="margin-top: 5px;"><?php echo $this->db->get('layanan')->num_rows(); ?>
-        </h1>
+            
+          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian')->num_rows(); ?>
+</h1>
           </div>
       </div>
-      
+      <?php if(!empty($this->session->userdata('id_user'))){ ?>
+        <div class="row" style="margin-top: 60px">
+          <div class="col-md-3" style="border: thin solid; ">
+          <h3><?php echo $this->db->get('layanan')->num_rows(); ?></h3>
+
+            <!-- <h3><?php echo $nomor; ?></h3> -->
+            <H6>Layanan Informasi</H6>
+          </div>
+          <div class="col-md-3" style="border: thin solid; ">
+          <h3><?php echo $this->db->get('user')->num_rows(); ?></h3>
+            <!-- <h3><?php echo $nomor; ?></h3> -->
+            <H6>Pendaftaran</H6></div>
+          <div class="col-md-3" style="border: thin solid; ">
+          <h3><?php echo $this->db->get('user_role')->num_rows(); ?></h3>
+            <!-- <h3><?php echo $nomor; ?></h3> -->
+            <H6>Pengambilan Dokumen</H6></div>
+          <div class="col-md-3" style="border: thin solid; ">
+          <h3><?php echo $this->db->get('log')->num_rows(); ?></h3>
+            <!-- <h3><?php echo $nomor; ?> -->
+            <H6>Bimas Islam</H6></div>
+        </div>
+      <?php } ?>
       <?php if(empty($this->session->userdata('id_user'))){ ?>
-        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Kementrian Agama Kota Malang 
-        <br>Silahkan Ambil No Antrian</h4>
+        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">.Selamat Datang di Kementrian Agama Kota Malang. 
+        <br>.Silahkan Ambil No Antrian.</h4>
         <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
           Antrian
         </button>
@@ -115,14 +137,14 @@
           <div class="col-md-5 text-right">
             <label><h5>Nomor Antrian Anda :</label></h5>
           </div>
-          <!-- <div class="col-md-2 text-justify"><h5><?php echo $nomor ?></h5></div> -->
+          <div class="col-md-2 text-justify"><h5><?php echo $this->db->get('user_role')->num_rows();?></h5></div>
           <?php if(!empty($id_antrian)){?>
             <div class="col-md-5"><a href="<?php echo base_url('Index/cetak')."/".$id_antrian ?>" style="color: #000; background: #fff; padding: 10px;" target="_blank">Cetak</a></div>
           <?php } ?>
         </div>
         <div class="row" style="width: 60%;">
-          <div class="col-md-5 text-right"><label><h5>Poli :</label></h5></div>
-          <!-- <div class="col-md-5 text-justify"><h5><?php echo $nama?></h5></div> -->
+          <div class="col-md-5 text-right"><label><h5>Layanan :</label></h5></div>
+          <div class="col-md-5 text-justify"><h5><?php echo $this->db->get('log')->num_rows();?></h5></div>
         </div>
       <?php } ?>
 
@@ -153,20 +175,12 @@
             <div class="row justify-content-md-center">
               <div class="col-md-4" style="margin-top: 20px">
                 <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo site_url() ?>login/log_process" method='post'>
-                <?php if ($this->session->flashdata('result') != '') { ?>
-                        <div class="alert alert-dark alert-dismissible fade show">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <?php echo $this->session->flashdata('result'); ?>
-                        </div>
-                    <?php
-                    }
-                ?>
+                <form action="<?php echo base_url('Index/proses_login') ?>" method='post'>
                   <label >Username</label>
-                    <input type="text" class="form-control" id="user" placeholder="Masukkan username" name="user" required>
-                          
+                  <input type="username" name="username" class="form-control" >
+               
                   <label>Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Masukkan password" name="password" required>
+                  <input type="password" name="password" class="form-control">
                   <br><br>
 
                   <div align="right">
@@ -180,6 +194,7 @@
 
         </div>
         <!-- /.row -->
+
       </div>
     <?php }else{ ?>
       <div class="container">
@@ -211,27 +226,28 @@
                     <div class="col-md-5">
                       <select name="id_antrian" id="id_antrian" class="form-control" onchange="noAntrian(this.value)">
                         <option value=""> pilih </option>
-                        <?php foreach ($getPoli as $row ) {
+                        <?php foreach ($user as $row ) {
                         ?>
-                          <option value="<?php echo $row->id_antrian; ?>"> <?php echo $row->kode; ?> </option>
+                          <option value="<?php echo $row->id_poli; ?>"> <?php echo $row->kode_poli; ?> </option>
                         <?php } ?>
                       </select>
                     </div>
                   </div>
+                  <br>
 
                   <div class ="row">
                     <div class ="col-md-2">
-                      <h6><label>No Antrian</label></h6>    
+                      <h6><label>No Antrian </label></h6>    
                     </div>
 
                     <div class="col-md-5">
-                      <input type="text" name="nomor" id="nomor" value="" disabled="" class="form-control">
-                      <input type="hidden" name="nomor" id="nomor" value="" class="form-control">
-                      <!-- <input type="hidden" name="nomor" value="<?php echo $nomor ?>"> -->
+                      <input type="text" name="" id="" value="" disabled="" class="form-control">
+                      <input type="hidden" name="" id="" value="" class="form-control">
+                      <input type="hidden" name="" value="">
                     </div>
                   </div>
+                  <br>
 
-                 
                   <div class="row text-right">
                     <div class="col-md-7">
                       <input type="submit" name="simpan" id="simpan" value="Ambil Antrian" class="btn btn-primary">
@@ -280,35 +296,26 @@
     <div class="container">  
       <div class="row">
         <div class="col-lg-4.ml-auto" align="center" >
-         <p class="lead">Klik Antrian > Pilih Layanan > Klik Cetak</p></center>
+        <p class="lead">Klik Antrian > Pilih Layanan > Klik Cetak</p></center>
           <p class="lead"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
       </div>
     </div>
     </div>
+      <!-- About Section Button -->
+      <!-- <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
+          <i class="fas fa-download mr-2"></i>
+          Free Download!
+        </a>
+      </div> -->
+    <!-- </div>
+    </div> -->
   </section>
 
   
 
-<!-- 
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
 
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">Jalan Kenangan Indah 4E 
-            <br>No.16 Rt.07/Rw.98</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4 class="text-uppercase mb-4">Telephone</h4>
-          
-          <p class="lead mb-0">(021)79184767</p>
-        </div>
-
-      </div>
-    </div>
-  </footer> -->
+ 
 
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
@@ -324,13 +331,12 @@
     </a>
   </div>
 
-
-   <!-- Modal -->
+  <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ambil No antrian</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrasi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -339,33 +345,47 @@
         <form action="<?php echo base_url('Index/registrasi') ?>" method="post">
 
             <div>
-                <label >Nomor Antrian <sup>*</sup></label>
-                <input type="text" id="nomor" name="nomor" class="form-control" value="" placeholder="Nomor Antrian" required="">
+                <label >Nomor KTP <sup>*</sup></label>
+                <input type="text" id="no_identitas" name="no_identitas" class="form-control" value="" placeholder="Nomor KTP" required="">
             </div>
+
             <div>
-              <label >Layanan</label>
-              <select id="id_layanan" name="id_layanan" class="form-control">
+               <label >Nama <sup>*</sup></label>
+               <input type="text" id="nama" name="nama" class="form-control" value="" placeholder="Nama" required="">
+            </div>
+
+            <div>
+              <label >Jenis Kelamin</label>
+              <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">
               <option value="">Pilih</option>
-              <option value="1">1. Layanan Informasi</option>
-              <option value="2">2. Pendaftaran</option>
-              <option value="3">3. Pengambilan Dokumen</option>
-              <option value="4">4. Bimas Islam</option>
+              <option value="Laki-Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
               </select>
             </div>
 
             <div>
-                <label >Tanggal <sup>*</sup></label>
-                <input type="date" id="tanggal" name="tanggal" class="form-control" value="" placeholder="Tanggal" required="">
+                <label >Tanggal Lahir <sup>*</sup></label>
+                <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" value="" placeholder="Tanggal Lahir" required="">
             </div>
 
             <div>
-              <label >Id Layanan</label>
-              <textarea id="id_layanan" name="id_layanan" class="form-control" placeholder="Id Layanan"></textarea>
+              <label >Alamat</label>
+              <textarea id="alamat" name="alamat" class="form-control" placeholder="Alamat"></textarea>
             </div>
 
             <div>
-                <label >Id Instansi</label>
-                <input type="id_instansi" id="id_instansi" name="id_instansi" class="form-control" value="" placeholder="Id Instansi">
+                <label >No Telephone</label>
+                <input type="no_telp" id="no_telp" name="no_telp" class="form-control" value="" placeholder="No Telephone">
+            </div>
+
+            <div>
+                <label >Username <sup>*</sup></label>
+                <input type="text" id="username" name="username" class="form-control" value="" placeholder="Username" required="">
+            </div>
+
+            <div>
+                <label >Password <sup>*</sup></label>
+                <input type="password" id="password" name="password" class="form-control" value="" placeholder="Password" required="">
             </div>
 
             <br><br>
@@ -382,8 +402,6 @@
   </div>
 </div>
 
- 
-
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -399,34 +417,34 @@
   <script src="<?php echo base_url('assets/user')?>/js/freelancer.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/lib/noty.min.js"></script>
   <script type="text/javascript">
-    function noAntrian(id_antrian){
-    // alert(id_antrian);?
-    if(id_antrian!=""){
+    function noAntrian(id_poli){
+    // alert(id_poli);?
+    if(id_poli!=""){
       $.ajax({
 
         url: "<?php echo base_url('Index/getNoAntrian'); ?>",
         type : "POST",
-        data : "id_antrian="+id_antrian,
+        data : "id_poli="+id_poli,
         datatype: "json",
         success:function(response){
           console.log(response);
           // alert(data);
           var output = JSON.parse(response);
           if(output.no > output.maks){
-            $("#nomor").val('Data Sudah Penuh');
+            $("#no_antrian_poli2").val('Data Sudah Penuh');
             // $("#simpan").toggle('slow');
             $("#simpan").prop("disabled",true);
           }else{
 
-            $("#nomor").val(output.no_hasil);
-            $("#nomor").val(output.no_hasil);
+            $("#no_antrian_poli").val(output.no_hasil);
+            $("#no_antrian_poli2").val(output.no_hasil);
             $("#simpan").prop("disabled",false);
           }
         } // Munculkan alert error
       });
     }else{
-      $("#nomor").val("");
-      $("#nomor").val("");
+      $("#no_antrian_poli").val("");
+      $("#no_antrian_poli2").val("");
     }
   }
   </script>

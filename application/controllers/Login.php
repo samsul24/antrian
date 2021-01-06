@@ -33,13 +33,12 @@ class Login extends CI_Controller
         $this->session->set_userdata('id_instansi', $check->id_instansi); 
       
         if ($this->session->userdata('id_user_role') == 1) {
-          // print "samsul";
-          // exit;
           redirect('adminclient');
-        }else if ($this->session->userdata('id_user_role') == 3) {
-          print "kowe";
-          exit;
-      }  
+        }else if($this->session->userdata('id_user_role') == 3) {
+          redirect('antrianclient');
+        }else{
+        return false;
+      }
     }
     else {
       $this->session->set_flashdata('result', 'Login gagal');
