@@ -26,7 +26,7 @@
                         <td><?php echo $rows->username; ?></td>
                         <td><?php echo $rows->password; ?></td>
                         <td><?php echo $rows->nama; ?></td>
-                        <td><?php echo $rows->id_instansi; ?></td>
+                        <td><?php echo $rows->id_instansi;?></td>
                         <td>
                             <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>

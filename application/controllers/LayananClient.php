@@ -19,7 +19,7 @@ class LayananClient extends CI_Controller
         $data['title'] = "Layanan";
         $this->load->view('header0');
         $this->load->view('bar');
-        $this->load->view('data/layanan', $data, FALSE);
+        $this->load->view('data/layanan', $data);
         $this->load->view('footer1');
     }
 }

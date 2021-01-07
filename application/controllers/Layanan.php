@@ -18,6 +18,7 @@ class Layanan extends REST_Controller
     {
         $id = $this->get('id_layanan');
         if ($id == '') {
+            $this->db->where('id_instansi', 11);
             $layanan = $this->db->get('layanan')->result();
         } else {
             $this->db->where('id_layanan', $id);

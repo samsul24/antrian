@@ -20,5 +20,12 @@ public function get_user()
             $data = $this->db->query("SELECT * from user");
             return $data->result();
         }
+        public function get_layanan()
+    {
+        $this->db->select('*');
+        $this->db->from('layanan');
+        $this->db->where('id_instansi', 11);
+        return $this->db->get()->result_array();
+    }
 }
 ?>

@@ -88,7 +88,9 @@
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-          <h1 style="margin-top: 5px;"><?php echo $this->db->get('layanan')->num_rows(); ?>
+          <h1 style="margin-top: 5px;"><?php echo 
+          $this->db->get('antrian','id_instansi', 11)->num_rows(); 
+          ?>
         </h1>
           </div>
       </div>
@@ -96,9 +98,9 @@
       <?php if(empty($this->session->userdata('id_user'))){ ?>
         <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Kementrian Agama Kota Malang 
         <br>Silahkan Ambil No Antrian</h4>
-        <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
+        <!-- <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
           Antrian
-        </button>
+        </button> -->
       <?php } ?>
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -242,10 +244,9 @@
                  <div class="row text-justify" >
                  <h6>Keterangan :</h6>
                   <ol>
-                    <li>Layanan Informasi (A)</li>
-                    <li>Pendaftaran (B)</li>
-                    <li>Pengambilan Dokumen (C)</li>
-                    <li>Bimas Islam (D)</li>
+                  <li>UMUM DAN KESEKRETARIATAN (A)</li>
+                    <li>PENDIDIKAN (B)</li>
+                    <li>AGAMA DAN PHU (C)</li>
                   </ol>
               </div>
               </div>
@@ -326,7 +327,7 @@
 
 
    <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fad e bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -346,10 +347,9 @@
               <label >Layanan</label>
               <select id="id_layanan" name="id_layanan" class="form-control">
               <option value="">Pilih</option>
-              <option value="1">1. Layanan Informasi</option>
-              <option value="2">2. Pendaftaran</option>
-              <option value="3">3. Pengambilan Dokumen</option>
-              <option value="4">4. Bimas Islam</option>
+              <option value="1">1. UMUM DAN KESEKRETARIATAN</option>
+              <option value="2">2. PENDIDIKAN</option>
+              <option value="3">3. AGAMA DAN PHU</option>
               </select>
             </div>
 

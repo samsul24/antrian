@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php if($this->session->userdata('id_user_role')!= 3){redirect('login');};?>
+
 <html lang="en">
 
 <head>
@@ -95,25 +97,19 @@
       </div>
       <?php if(!empty($this->session->userdata('id_user'))){ ?>
         <div class="row" style="margin-top: 60px">
-          <div class="col-md-3" style="border: thin solid; ">
+          <div class="col-md-4" style="border: thin solid; margin:center; ">
           <h3><?php echo $this->db->get('layanan')->num_rows(); ?></h3>
-
             <!-- <h3><?php echo $nomor; ?></h3> -->
-            <H6>Layanan Informasi</H6>
+            <H6>UMUM DAN KESEKRETARIATAN</H6>
           </div>
-          <div class="col-md-3" style="border: thin solid; ">
+          <div class="col-md-4" style="border: thin solid; ">
           <h3><?php echo $this->db->get('user')->num_rows(); ?></h3>
             <!-- <h3><?php echo $nomor; ?></h3> -->
-            <H6>Pendaftaran</H6></div>
-          <div class="col-md-3" style="border: thin solid; ">
+            <H6>PENDIDIKAN</H6></div>
+          <div class="col-md-4" style="border: thin solid; ">
           <h3><?php echo $this->db->get('user_role')->num_rows(); ?></h3>
             <!-- <h3><?php echo $nomor; ?></h3> -->
-            <H6>Pengambilan Dokumen</H6></div>
-          <div class="col-md-3" style="border: thin solid; ">
-          <h3><?php echo $this->db->get('log')->num_rows(); ?></h3>
-            <!-- <h3><?php echo $nomor; ?> -->
-            <H6>Bimas Islam</H6></div>
-        </div>
+            <H6>AGAMA DAN PHU </H6></div>
       <?php } ?>
       <?php if(empty($this->session->userdata('id_user'))){ ?>
         <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">.Selamat Datang di Kementrian Agama Kota Malang. 
@@ -137,7 +133,8 @@
           <div class="col-md-5 text-right">
             <label><h5>Nomor Antrian Anda :</label></h5>
           </div>
-          <div class="col-md-2 text-justify"><h5><?php echo $this->db->get('user_role')->num_rows();?></h5></div>
+          <div class="col-md-2 text-justify"><h5><?php echo 
+          $this->db->get('user_role')->num_rows();?></h5></div>
           <?php if(!empty($id_antrian)){?>
             <div class="col-md-5"><a href="<?php echo base_url('Index/cetak')."/".$id_antrian ?>" style="color: #000; background: #fff; padding: 10px;" target="_blank">Cetak</a></div>
           <?php } ?>
@@ -182,11 +179,9 @@
                   <label>Password</label>
                   <input type="password" name="password" class="form-control">
                   <br><br>
-
                   <div align="right">
                   <button type="submit" class="btn btn-dark">Login</button>
                   </div>
-                  
                 </form>
               </div>
             </div>
@@ -217,20 +212,26 @@
             <div class="row justify-content-md-center">
               <div class="col-md-12" style="margin-top: 20px">
                 <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo base_url('Index/saveAntrian') ?>" method="post">
+                <form action="<?php echo base_url().'antrian/saveAntrian' ?>" method="post">
+                <div class ="row">
+                <div class ="col-md-2">
+                  <h6><label>Tanggal Antrian</label></h6>   
+                  </div>
+                  <div class="col-md-5">
+                   <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" value="" placeholder="Tanggal Lahir" required="">
+                  </div>
+                  </div>
+                  <br>
                   <div class ="row">
                     <div class ="col-md-2">
                       <h6><label>Pilih Layanan</label></h6>   
                     </div>
-
                     <div class="col-md-5">
-                      <select name="id_antrian" id="id_antrian" class="form-control" onchange="noAntrian(this.value)">
-                        <option value=""> pilih </option>
-                        <?php foreach ($user as $row ) {
-                        ?>
-                          <option value="<?php echo $row->id_poli; ?>"> <?php echo $row->kode_poli; ?> </option>
-                        <?php } ?>
-                      </select>
+                    <select class="form-control" id="id_layanan" name="id_layanan" required>
+                                <?php foreach ($menu as $rows) : ?>
+                                    <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->id_layanan; ?> - <?php echo $rows->nama; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                     </div>
                   </div>
                   <br>
@@ -241,13 +242,12 @@
                     </div>
 
                     <div class="col-md-5">
-                      <input type="text" name="" id="" value="" disabled="" class="form-control">
-                      <input type="hidden" name="" id="" value="" class="form-control">
-                      <input type="hidden" name="" value="">
+                      <input type="text" name="nomor" id="nomor" value="" disabled="" class="form-control">
+                      <input type="hidden" name="nomor" id="nomor" value="" class="form-control">
+                      <input type="hidden" name="nomor" value="">
                     </div>
                   </div>
                   <br>
-
                   <div class="row text-right">
                     <div class="col-md-7">
                       <input type="submit" name="simpan" id="simpan" value="Ambil Antrian" class="btn btn-primary">
@@ -258,10 +258,9 @@
                  <div class="row text-justify" >
                  <h6>Keterangan :</h6>
                   <ol>
-                    <li>Layanan Informasi (A)</li>
-                    <li>Pendaftaran (B)</li>
-                    <li>Pengambilan Dokumen (C)</li>
-                    <li>Bimas Islam (D)</li>
+                    <li>UMUM DAN KESEKRETARIATAN (A)</li>
+                    <li>PENDIDIKAN (B)</li>
+                    <li>AGAMA DAN PHU (C)</li>
                   </ol>
               </div>
               </div>
@@ -417,34 +416,34 @@
   <script src="<?php echo base_url('assets/user')?>/js/freelancer.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/lib/noty.min.js"></script>
   <script type="text/javascript">
-    function noAntrian(id_poli){
-    // alert(id_poli);?
-    if(id_poli!=""){
+    function noAntrian(id_layanan){
+    // alert(id_layanan);?
+    if(id_layanan!=""){
       $.ajax({
 
         url: "<?php echo base_url('Index/getNoAntrian'); ?>",
         type : "POST",
-        data : "id_poli="+id_poli,
+        data : "id_layanan="+id_layanan,
         datatype: "json",
         success:function(response){
           console.log(response);
           // alert(data);
           var output = JSON.parse(response);
           if(output.no > output.maks){
-            $("#no_antrian_poli2").val('Data Sudah Penuh');
+            $("#nomor").val('Data Sudah Penuh');
             // $("#simpan").toggle('slow');
             $("#simpan").prop("disabled",true);
           }else{
 
-            $("#no_antrian_poli").val(output.no_hasil);
-            $("#no_antrian_poli2").val(output.no_hasil);
+            $("#nomor").val(output.no_hasil);
+            $("#nomor").val(output.no_hasil);
             $("#simpan").prop("disabled",false);
           }
         } // Munculkan alert error
       });
     }else{
-      $("#no_antrian_poli").val("");
-      $("#no_antrian_poli2").val("");
+      $("#nomor").val("");
+      $("#nomor").val("");
     }
   }
   </script>

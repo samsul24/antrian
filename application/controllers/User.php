@@ -18,6 +18,7 @@ class User extends REST_Controller
     {
         $id = $this->get('id_user');
         if ($id == '') {
+            $this->db->where('id_instansi', 11);
             $user = $this->db->get('user')->result();
         } else {
             $this->db->where('id_user', $id);
