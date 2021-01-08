@@ -10,7 +10,8 @@ class AntrianClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
         
-        $this->API = "http://localhost:8080/antrian/";
+        $this->API = "http://localhost:8080/antrian/layanan";
+
     }
 
     public function index()

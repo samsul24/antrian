@@ -21,15 +21,5 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/index', $data, FALSE);
         $this->load->view('footer1');
     }
-    public function user()
-    {
-        $data['user'] = $this->admin_model->get1();
-        $data['title'] = 'Katalog';
-        $this->load->view('header4', $data);
-        $this->load->view('materi/subindexhabitat', $data, FALSE);
-        $this->load->view('footer', $data);
-
-    }
-    
 }
 ?>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php if($this->session->userdata('id_user_role')!= 3){redirect('login');};?>
 
 <html lang="en">
 
@@ -57,18 +56,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <?php if(empty($this->session->userdata('id_user'))) {?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#registrasi">Login</a>
-            </li>
-          <?php }else{?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"><?php echo $this->session->userdata('nama'); ?></a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?= base_url().'login/out' ?>">Logout</a>
-            </li>
-          <?php }?>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#bantuan">Bantuan</a>
           </li>
@@ -90,34 +77,30 @@
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-            
-          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian')->num_rows(); ?>
+          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian','id_instansi', 11)->num_rows(); 
+ ?>
 </h1>
           </div>
       </div>
-      <?php if(!empty($this->session->userdata('id_user'))){ ?>
         <div class="row" style="margin-top: 60px">
           <div class="col-md-4" style="border: thin solid; margin:center; ">
-          <h3><?php echo $this->db->get('layanan')->num_rows(); ?></h3>
+          <h3><?php echo $this->db->get('layanan','id_instansi', 11)->num_rows(); ?></h3>
             <!-- <h3><?php echo $nomor; ?></h3> -->
             <H6>UMUM DAN KESEKRETARIATAN</H6>
           </div>
           <div class="col-md-4" style="border: thin solid; ">
-          <h3><?php echo $this->db->get('user')->num_rows(); ?></h3>
+          <h3><?php echo $this->db->get('user','id_instansi', 11)->num_rows(); ?></h3>
             <!-- <h3><?php echo $nomor; ?></h3> -->
             <H6>PENDIDIKAN</H6></div>
           <div class="col-md-4" style="border: thin solid; ">
-          <h3><?php echo $this->db->get('user_role')->num_rows(); ?></h3>
+          <h3><?php echo $this->db->get('user_role','id_instansi', 11)->num_rows(); ?></h3>
             <!-- <h3><?php echo $nomor; ?></h3> -->
             <H6>AGAMA DAN PHU </H6></div>
-      <?php } ?>
-      <?php if(empty($this->session->userdata('id_user'))){ ?>
-        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">.Selamat Datang di Kementrian Agama Kota Malang. 
+        </div>
+        </div>
+        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px; " >.Selamat Datang di Kementrian Agama Kota Malang. 
         <br>.Silahkan Ambil No Antrian.</h4>
-        <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
-          Antrian
-        </button>
-      <?php } ?>
+
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
@@ -126,72 +109,29 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-
       <!-- Masthead Subheading -->
-      <?php if(!empty($this->session->userdata('id_user'))){ ?>
-        <div class="row" style="width: 60%;">
+        <div class="row" style="width: 60%; margin-left:250px;">
           <div class="col-md-5 text-right">
             <label><h5>Nomor Antrian Anda :</label></h5>
           </div>
           <div class="col-md-2 text-justify"><h5><?php echo 
-          $this->db->get('user_role')->num_rows();?></h5></div>
+              $this->db->get('user_role','id_instansi', 11)->num_rows();?></h5>
+          </div>
           <?php if(!empty($id_antrian)){?>
-            <div class="col-md-5"><a href="<?php echo base_url('Index/cetak')."/".$id_antrian ?>" style="color: #000; background: #fff; padding: 10px;" target="_blank">Cetak</a></div>
+            <div class="col-md-5">
+                 <a href="<?php echo base_url('Index/cetak')."/".$id_antrian ?>" style="color: #000; background: #fff; padding: 10px;" target="_blank">Cetak</a>
+            </div>
           <?php } ?>
         </div>
-        <div class="row" style="width: 60%;">
+        <div class="row" style="width: 60%; margin-left:250px;">
           <div class="col-md-5 text-right"><label><h5>Layanan :</label></h5></div>
-          <div class="col-md-5 text-justify"><h5><?php echo $this->db->get('log')->num_rows();?></h5></div>
+          <div class="col-md-5 text-justify"><h5><?php echo $this->db->get('log','id_instansi', 11)->num_rows();?></h5></div>
         </div>
-      <?php } ?>
-
     </div>
   </header>
 
   <!-- Portfolio Section -->
   <section class="page-section portfolio" id="registrasi">
-     <?php if(empty($this->session->userdata('id_user'))){ ?>
-      <div class="container">
-
-        <!-- Portfolio Section Heading -->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
-
-        <!-- Icon Divider -->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-
-        <!-- Portfolio Grid Items -->
-        <div class="row">
-
-          <div class="container">
-            <div class="row justify-content-md-center">
-              <div class="col-md-4" style="margin-top: 20px">
-                <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo base_url('Index/proses_login') ?>" method='post'>
-                  <label >Username</label>
-                  <input type="username" name="username" class="form-control" >
-               
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control">
-                  <br><br>
-                  <div align="right">
-                  <button type="submit" class="btn btn-dark">Login</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.row -->
-
-      </div>
-    <?php }else{ ?>
       <div class="container">
 
         <!-- Portfolio Section Heading -->
@@ -217,9 +157,9 @@
                 <div class ="col-md-2">
                   <h6><label>Tanggal Antrian</label></h6>   
                   </div>
-                  <div class="col-md-5">
-                   <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" value="" placeholder="Tanggal Lahir" required="">
-                  </div>
+                    <div class="col-md-5">
+                      <input type="date" id="tanggal" name="tanggal" class="form-control" value="" placeholder="Tanggal Lahir" required="">
+                    </div>
                   </div>
                   <br>
                   <div class ="row">
@@ -227,24 +167,24 @@
                       <h6><label>Pilih Layanan</label></h6>   
                     </div>
                     <div class="col-md-5">
-                    <select class="form-control" id="id_layanan" name="id_layanan" required>
-                                <?php foreach ($menu as $rows) : ?>
-                                    <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->id_layanan; ?> - <?php echo $rows->nama; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                    <select class="form-control" id="id_layanan" name="id_layanan" onchange="noAntrian(this.value)">
+                      <option value="" > Pilih </option>
+                      <?php foreach ($antrian as $rows) : ?>
+                          <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->nama_layanan; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                     </div>
                   </div>
                   <br>
-
                   <div class ="row">
                     <div class ="col-md-2">
                       <h6><label>No Antrian </label></h6>    
                     </div>
 
                     <div class="col-md-5">
-                      <input type="text" name="nomor" id="nomor" value="" disabled="" class="form-control">
-                      <input type="hidden" name="nomor" id="nomor" value="" class="form-control">
-                      <input type="hidden" name="nomor" value="">
+                      <input type="text" name="kode2" id="kode2" value="" disabled="" class="form-control">
+                      <input type="hidden" name="kode" id="kode" value="" class="form-control">
+                      <!-- <input type="hidden" name="kode" value="<?php echo $this->db->get('layanan')->num_rows(); ?>"> -->
                     </div>
                   </div>
                   <br>
@@ -272,7 +212,6 @@
         </div>
         <!-- /.row -->
       </div>
-    <?php } ?>
   </section>
 
   <!-- About Section -->
@@ -331,7 +270,7 @@
   </div>
 
   <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -389,7 +328,6 @@
 
             <br><br>
             <div align="right">
-            <!-- <a href="<?php //echo base_url() ?>"  >Registrasi</a> -->
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
@@ -399,7 +337,7 @@
       
     </div>
   </div>
-</div>
+</div> -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>
@@ -430,20 +368,20 @@
           // alert(data);
           var output = JSON.parse(response);
           if(output.no > output.maks){
-            $("#nomor").val('Data Sudah Penuh');
+            $("#kode2").val('Data Sudah Penuh');
             // $("#simpan").toggle('slow');
             $("#simpan").prop("disabled",true);
           }else{
 
-            $("#nomor").val(output.no_hasil);
-            $("#nomor").val(output.no_hasil);
+            $("#kode").val(output.no_hasil);
+            $("#kode2").val(output.no_hasil);
             $("#simpan").prop("disabled",false);
           }
         } // Munculkan alert error
       });
     }else{
-      $("#nomor").val("");
-      $("#nomor").val("");
+      $("#kode").val("");
+      $("#kode2").val("");
     }
   }
   </script>

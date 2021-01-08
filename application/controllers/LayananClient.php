@@ -22,5 +22,26 @@ class LayananClient extends CI_Controller
         $this->load->view('data/layanan', $data);
         $this->load->view('footer1');
     }
+
+    public function post_process()
+    {
+        $data = array(
+            'id_menu'          => $this->input->post('id_menu2'),
+            'id_pelanggan'         => $this->input->post('id_pelanggan2'),
+            'jumlah'         => $this->input->post('jumlah'),
+            'total'         => $this->input->post('total'),
+            'alamat'         => $this->input->post('alamat'),
+            'tanggal'       => $this->input->post('tanggal'),
+        );
+
+        $update =  $this->curl->simple_post($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
+        if ($update) {
+            $this->session->set_flashdata('result', 'Order Menu Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Order Menu Gagal');
+        }
+        redirect('userclient');
+    }
+
 }
 ?>

@@ -88,20 +88,17 @@
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-          <h1 style="margin-top: 5px;"><?php echo 
-          $this->db->get('antrian','id_instansi', 11)->num_rows(); 
-          ?>
+          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian','id_instansi', 11)->num_rows(); ?>
         </h1>
           </div>
       </div>
-      
-      <?php if(empty($this->session->userdata('id_user'))){ ?>
+  
         <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Kementrian Agama Kota Malang 
         <br>Silahkan Ambil No Antrian</h4>
-        <!-- <button type="button" class="btn btncostume" data-toggle="modal" data-target="#exampleModal">
-          Antrian
-        </button> -->
-      <?php } ?>
+        <div class="col-md-2">
+                <a href="<?php echo site_url(); ?>antrianclient" class="btn btn-dark btn-block banner" role="button" style="margin: center">
+                  Ambil Antrian                </a>
+            </div>
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>

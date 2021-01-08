@@ -16,14 +16,14 @@ class Laporan extends REST_Controller
 
     function index_get()
     {
-        $id = $this->get('id_user');
+        $id = $this->get('id_layanan');
         if ($id == '') {
-            $user = $this->db->get('user')->result();
+            $layanan = $this->db->get('layanan')->result();
         } else {
-            $this->db->where('id_user', $id);
-            $user = $this->db->get('user')->result();
+            $this->db->where('id_layanan', $id);
+            $layanan = $this->db->get('layanan')->result();
         }
-        $this->response($user, 200);
+        $this->response($layanan, 200);
     }
 
 }
