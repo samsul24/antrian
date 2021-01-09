@@ -167,7 +167,7 @@
                       <h6><label>Pilih Layanan</label></h6>   
                     </div>
                     <div class="col-md-5">
-                    <select class="form-control" id="id_layanan" name="id_layanan" onchange="noAntrian(this.value)">
+                    <select class="form-control" id="id_layanan" name="id_layanan">
                       <option value="" > Pilih </option>
                       <?php foreach ($antrian as $rows) : ?>
                           <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->nama_layanan; ?></option>
@@ -178,19 +178,35 @@
                   <br>
                   <div class ="row">
                     <div class ="col-md-2">
+                      <h6><label>Kode Antrian </label></h6>    
+                    </div>
+                    <div class="col-md-5">
+                      <input  type="text" name="kode" id="kode" value="" disabled="" class="form-control" required readonly>
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class ="row">
+                    <div class ="col-md-2">
                       <h6><label>No Antrian </label></h6>    
                     </div>
-
                     <div class="col-md-5">
-                      <input type="text" name="kode2" id="kode2" value="" disabled="" class="form-control">
-                      <input type="hidden" name="kode" id="kode" value="" class="form-control">
-                      <!-- <input type="hidden" name="kode" value="<?php echo $this->db->get('layanan')->num_rows(); ?>"> -->
+                      <?php foreach ($antrian1 as $rows) : ?>
+                        <tr><td></td><td>
+
+                        <input value="<?php echo $rows->nomor; ?>" type="text" id="nomor" disabled>
+                        </td>
+                        </tr>
+
+                        <!-- <input type="text" class="form-control" id="nomor" placeholder="" value="<?php echo $rows->nomor; ?>" name="nomor" required readonly> -->
+                      <!-- <?php endforeach; ?> -->
+                        <!-- <input type="text" class="form-control" id="nomor" name="nomor" disabled="" value="<?php echo $rows->nomor; ?>" required readonly> -->
                     </div>
                   </div>
                   <br>
                   <div class="row text-right">
                     <div class="col-md-7">
-                      <input type="submit" name="simpan" id="simpan" value="Ambil Antrian" class="btn btn-primary">
+                      <input type="submit" class="btn btn-primary">
                     </div>
                   </div>
                 </form>
@@ -339,6 +355,7 @@
   </div>
 </div> -->
 
+
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -353,53 +370,31 @@
   <!-- Custom scripts for this template -->
   <script src="<?php echo base_url('assets/user')?>/js/freelancer.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/lib/noty.min.js"></script>
-  <script type="text/javascript">
-    function noAntrian(id_layanan){
-    // alert(id_layanan);?
-    if(id_layanan!=""){
-      $.ajax({
-
-        url: "<?php echo base_url('Index/getNoAntrian'); ?>",
-        type : "POST",
-        data : "id_layanan="+id_layanan,
-        datatype: "json",
-        success:function(response){
-          console.log(response);
-          // alert(data);
-          var output = JSON.parse(response);
-          if(output.no > output.maks){
-            $("#kode2").val('Data Sudah Penuh');
-            // $("#simpan").toggle('slow');
-            $("#simpan").prop("disabled",true);
-          }else{
-
-            $("#kode").val(output.no_hasil);
-            $("#kode2").val(output.no_hasil);
-            $("#simpan").prop("disabled",false);
-          }
-        } // Munculkan alert error
+  <script>
+    $(document).ready(function() {
+      $("#id_layanan").change(function() {
+        document.getElementById("kode").value = $(this).find('option:selected').attr('data-price');
       });
-    }else{
-      $("#kode").val("");
-      $("#kode2").val("");
-    }
-  }
+      $("#id_layanan").change(function() {
+        document.getElementById("nomor").value = $(this).find('option:selected').attr('data-price1');
+      });
+      
+    });
   </script>
-
-   <?php if($this->session->flashdata('notif')){?>
-        <script type="text/javascript">
-            new Noty({
-                
-                text: '<?php echo $this->session->flashdata('pesan'); ?>',
-                timeout: 3000,
-                theme: "metroui",
-                type: "<?php echo $this->session->flashdata('type'); ?>",
-
-                
-            }).show();
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script type="text/javascript">
+            function isi_otomatis(){
+                var nim = $("#id_antrian").val();
+                $.ajax({
+                    url: 'ajax.php',
+                    data:"id_antrian="+id_antrian ,
+                }).success(function (data) {
+                    var json = data,
+                    obj = JSON.parse(json);
+                    $('#nomor').val(obj.nomor);
+                });
+            }
         </script>
-        <?php } ?>
-
 </body>
 
 </html>

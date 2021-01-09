@@ -1,12 +1,11 @@
 <?php
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class User extends REST_Controller
+class Antrian1 extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -16,16 +15,15 @@ class User extends REST_Controller
 
     function index_get()
     {
-        $id = $this->get('id_user');
-        if ($id == '') {            
+        $id = $this->get('id_antrian');
+        if ($id == '') {
             $this->db->where('id_instansi', 11);
-            $user = $this->db->get('user')->result();
+            $antrian1 = $this->db->get('antrian')->result();
         } else {
-            $this->db->where('id_user', $id);
-            $user = $this->db->get('user')->result();
+            $this->db->where('id_antrian', $id);
+            $antrian1 = $this->db->get('antrian')->result();
         }
-        $this->response($user, 200);
+        $this->response($antrian1, 200);
     }
-
 }
 ?>

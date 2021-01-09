@@ -42,7 +42,7 @@
 					</li>
 					<li class="nav-item">
 						<a href="<?php echo site_url(); ?>roleuserclient" class="nav-link text-white">
-							<i class="fas fa-user-plus" aria-hidden="true"></i> &nbsp;
+							<i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;
 							<span> User Role </span>
 						</a>
 					</li>

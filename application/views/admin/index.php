@@ -39,7 +39,11 @@
             <div class="small-box bg-info">
               <div class="inner">
               <h1 style="font-size: 40px">
-						<?php echo $this->db->get('user')->num_rows(0); ?>
+            <?php  
+           $this->db->where('id_instansi', 11);
+            $user = $this->db->get('user')->num_rows();
+            print($user);
+             ?>
                 </h1>
                 <p style="font-size: 30px">User</p>
               </div>
@@ -71,7 +75,11 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3 style="font-size: 40px">
-						<?php echo $this->db->get('layanan')->num_rows(); ?>
+            <?php 
+             $this->db->where('id_instansi', 11);
+             $layanan = $this->db->get('layanan')->num_rows();
+             print($layanan);
+             ?>
             </h3>
                 <p style="font-size: 30px">Layanan</p>
               </div>
