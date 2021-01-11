@@ -31,7 +31,6 @@
         </div>
       </div>
     </div>
-
     <section class="content" >
       <div class="container-fluid">
         <div class="row">
@@ -42,11 +41,8 @@
             <?php  
            $this->db->where('id_instansi', 11);
             $user = $this->db->get('user')->num_rows();
-            print($user);
-             ?>
-                </h1>
-                <p style="font-size: 30px">User</p>
-              </div>
+            print($user);?> </h1> <p style="font-size: 30px">User</p>
+            </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
@@ -102,38 +98,78 @@
               <div class="icon">
               <i class="ion ion-thumbsup subdued"></i>
 
-
               </div>
               <a href="<?php echo site_url(); ?>logclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
-
-
-        
             <div class="card bg-gradient-info" style="margin-left:7px">
               <div class="card-header border-0" >
                 <h3 class="card-title" style="margin-right: 85px;">
-                <!-- style="margin-left:920px; margin-right:920px;" -->
                   <i class="fas fa-th mr-1 "></i>
                   Grafik 
                 </h3>
-
                 <div class="card-tools">
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
+                    <!-- <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button> -->
                   <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
-              </div>
+                <br>
+                <br>
+                <br>
+
+                <style>
+ #chart{
+   z-index:-10;} 
+</style>
+<body>
+   <div id="chart">
+   
+   </div>
+        <script src="<?=base_url('assets');?>/highcharts/jquery.min.js" type="text/javascript"></script>
+        <script src="<?=base_url('assets');?>/highcharts/highcharts.js" type="text/javascript"></script>
+        <script src="<?=base_url('assets');?>/highcharts/modules/exporting.js" type="text/javascript"></script>
+        <script src="<?=base_url('assets');?>/highcharts/modules/offline-exporting.js" type="text/javascript"></script>
+        <script type="text/javascript">
+    jQuery(function(){
+      new Highcharts.Chart({
+          chart: {
+          renderTo: 'chart',
+          type: 'line',
+          },
+          title: {
+          text: 'Grafik Statistik Antrian',
+          x: -20
+          },
+          subtitle: {
+          text: 'Count visitor',
+          x: -20
+          },
+          xAxis: {
+          // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des','Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des',
+          // 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des','Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des']
+          },
+          yAxis: {
+          title: {
+            text: 'Total pengunjung'
+          }
+          },
+          series: [{
+          name: 'Data dalam Bulan',
+          data: <?php echo json_encode($antrian); ?>
+          }]
+        });
+      }); 
+</script>          
               <div class="card-body">
                 <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
-       
-              
-<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/adminlte.js"></script>
-<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/pages/dashboard.js"></script>
 
 </body>
+<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/adminlte.js"></script>
+<script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/pages/dashboard.js"></script>
+</body>
+
+

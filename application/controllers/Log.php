@@ -18,6 +18,7 @@ class Log extends REST_Controller
     {
         $id = $this->get('id_log');
         if ($id == '') {
+            $this->db->where('id_user', 243);
             $log = $this->db->get('log')->result();
         } else {
             $this->db->where('id_log', $id);

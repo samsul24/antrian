@@ -1,9 +1,6 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
-
 <div class="topBar">
-
 	<div id="sidebar" >
-
 		<div class="menubar d-flex flex-row justify-content-between" style="margin-left:-30px; margin-top:-5px">
 			<div class="rowBar" style="margin-left:30px;">
 				<span></span>
@@ -46,14 +43,12 @@
 							<span> User Role </span>
 						</a>
 					</li>
-					
 					<li class="nav-item">
 						<a href="<?php echo site_url(); ?>layananclient" class="nav-link active text-white">
 							<i class="fa  fa-tablet " aria-hidden="true"></i> &nbsp;
 							<span> Layanan </span>
 						</a>
 					</li>
-					
 					<li class="nav-item">
 						<a href="" class="nav-link active text-white av">
 							<i class="" aria-hidden="true"></i> &nbsp;
@@ -61,7 +56,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo site_url(); ?>gambaruser" class="nav-link active text-white">
+						<a href="<?php echo site_url(); ?>laporanclient" class="nav-link active text-white">
 							<i class="fas  fa-book" aria-hidden="true"></i> &nbsp;
 							<span> Laporan </span>
 						</a>
@@ -77,8 +72,6 @@
 			<div class="card-footer">
 				<h6 class="text-white">@ Copyright by KemanagKota Malang</h6>
 			</div>
-	
 		</div>
 	</div>
-
 </div>
