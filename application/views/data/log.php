@@ -1,11 +1,16 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
     <div class="cc">
-        <h1 class="mt-2 mb-3 font-weight-bold">Layanan</h1>
-        <div class="mb-3">
-                <a href="<?php echo site_url(); ?>userclient/post" class="btn btn-primary">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Tambah Data </a>
-            
-    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 >Log</h1>
+                <ol class="breadcrumb">
+                    <li><a href=""><span class="fa fa-home"></span>&nbsp;/&nbsp;</a></li>
+                    <li><a href="">Log</a></li>
+                    <li class="active">&nbsp;/&nbsp;Data Log</li>
+                </ol>
+            </div>    
+            </div>    
+
 	<div class="tableSize">
 		<table class="table" id="myTable">
 			<thead class="thead-dark">

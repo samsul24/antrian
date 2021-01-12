@@ -16,6 +16,7 @@ class LaporanClient extends CI_Controller
     public function index()
     {
         $data['laporan'] = json_decode($this->curl->simple_get($this->API));
+        // $data['laporan'] = $this->admin_model->join()->result();
         $data['title'] = "Log";
         $this->load->view('header0');
         $this->load->view('bar');

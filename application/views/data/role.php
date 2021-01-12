@@ -1,12 +1,16 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
     <div class="cc">
-        <h1 class="mt-2 mb-3 font-weight-bold">User Role</h1>
-        <div class="mb-3">
-                <a href="<?php echo site_url(); ?>userclient/post" class="btn btn-primary">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Tambah Data </a>
-            <!-- <a href="<?php echo site_url(); ?>adminclient/verification" class="btn btn-success">
-            <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Verification</a> -->
-    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 >Role User</h1>
+                <ol class="breadcrumb">
+                    <li><a href=""><span class="fa fa-home"></span>&nbsp;/&nbsp;</a></li>
+                    <li><a href="">Role User</a></li>
+                    <li class="active">&nbsp;/&nbsp;Data Role User</li>
+                </ol>
+            </div>    
+            </div>    
+
 	<div class="tableSize">
 		<table class="table" id="myTable">
 			<thead class="thead-dark">
