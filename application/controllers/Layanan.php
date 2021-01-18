@@ -26,6 +26,38 @@ class Layanan extends REST_Controller
         }
         $this->response($layanan, 200);
     }
+    function index_put()
+    {
+        $id = $this->put('id_layanan');
+        $data = array(
+            'nama_layanan'         => $this->put('nama_layanan'),
+            'nama_layanan'         => $this->put('nama_layanan'),
+            'kode'                 => $this->put('kode'),
+            'status'               => $this->put('status'),
+            'id_instansi'          => $this->put('id_instansi'),
+            'id_kategori_layanan'  => $this->put('id_kategori_layanan'),
+            );
+        $this->db->where('id_layanan', $id);
+        $update = $this->db->update('layanan', $data);
+        // print_r($update);
+        // exit;
+        if ($update) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+    function index_delete()
+    {
+        $id = $this->delete('id_layanan');
+        $this->db->where('id_layanan', $id);
+        $delete = $this->db->delete('layanan');
+        if ($delete) {
+            $this->response(array('status' => 'success'), 201);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
 
 }
 ?>

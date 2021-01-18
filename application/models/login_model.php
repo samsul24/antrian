@@ -15,7 +15,6 @@ class login_model extends CI_Model
     public function input_data($data)
     {
         $this->db->insert('user_online', $data);
-        // $this->session->set_flashdata('status', 'Registration success, please wait for verification');
     }
 }
 

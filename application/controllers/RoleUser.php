@@ -25,6 +25,7 @@ class RoleUser extends REST_Controller
         }
         $this->response($user, 200);
     }
+    
 
 }
 ?>

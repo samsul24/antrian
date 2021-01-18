@@ -18,7 +18,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">USER ROLE</th>
                     <!-- <th scope="col">MENU AKSES</th> -->
-                    <th scope="col">ACTION</th>
+                    <!-- <th scope="col">ACTION</th> -->
 				</tr>
             </thead>
              <tbody>
@@ -27,13 +27,13 @@
                         <td><?php echo $rows->id_user_role; ?></td>
                         <td><?php echo $rows->user_role; ?></td>
                         <!-- <td><?php echo $rows->menu_akses; ?></td> -->
-                        <td>
-                            <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user_role; ?>" class="btn btn-warning">
+                        <!-- <td>
+                            <a href="<?php echo site_url(); ?>roleuserclient/put/<?php echo $rows->id_user_role; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>
-                            <a href="<?= base_url(); ?>userclient/delete/<?= $rows->id_user_role ;?>" class="btn btn-danger"
+                            <a href="<?= base_url(); ?>roleuserclient/delete/<?= $rows->id_user_role ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
                             <i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
+                        </td> -->
                     </tr>
                  <?php endforeach; ?>
                 </tbody>

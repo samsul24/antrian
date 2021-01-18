@@ -37,23 +37,23 @@ class AdminClient extends CI_Controller
         $this->load->view('footer1');
     }
 
-    public function index1()
-    {
-    foreach($this->admin_model->grafik_tunggu()->result_array() as $row)
-    {
-    $data1['antrian'][]=(float)$row['Senin'];
-    $data1['antrian'][]=(float)$row['Selasa'];
-    $data1['antrian'][]=(float)$row['Rabu'];
-    $data1['antrian'][]=(float)$row['Kamis'];
-    $data1['antrian'][]=(float)$row['Jumat'];
-    $data1['antrian'][]=(float)$row['Sabtu'];
-    $data1['antrian'][]=(float)$row['Minggu'];
-    }
-    $data1['title'] = "Dashboard";
-        $this->load->view('header0');
-        $this->load->view('bar');
-        $this->load->view('admin/index', $data1, FALSE);
-        $this->load->view('footer1');
-    }
+    // public function index1()
+    // {
+    // foreach($this->admin_model->grafik_tunggu()->result_array() as $row)
+    // {
+    // $data1['layanan'][]=(float)$row['Senin'];
+    // $data1['layanan'][]=(float)$row['Selasa'];
+    // $data1['layanan'][]=(float)$row['Rabu'];
+    // $data1['layanan'][]=(float)$row['Kamis'];
+    // $data1['layanan'][]=(float)$row['Jumat'];
+    // $data1['layanan'][]=(float)$row['Sabtu'];
+    // $data1['layanan'][]=(float)$row['Minggu'];
+    // }
+    // $data1['title'] = "Dashboard";
+    //     $this->load->view('header0');
+    //     $this->load->view('bar');
+    //     $this->load->view('admin/index', $data1, FALSE);
+    //     $this->load->view('footer1');
+    // }
 }
 ?>

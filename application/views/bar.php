@@ -50,6 +50,12 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?php echo site_url(); ?>loketclient" class="nav-link active text-white">
+							<i class="fa fa-microphone " aria-hidden="true"></i> &nbsp;
+							<span> Loket </span>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="" class="nav-link active text-white av">
 							<i class="" aria-hidden="true"></i> &nbsp;
 							<span> LAPORAN ANTRIAN </span>

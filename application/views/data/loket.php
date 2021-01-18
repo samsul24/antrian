@@ -2,11 +2,11 @@
     <div class="cc">
     <div class="row">
         <div class="col-lg-12">
-            <h1 >Layanan</h1>
+            <h1 >Loket</h1>
                 <ol class="breadcrumb">
                     <li><a href=""><span class="fa fa-home"></span>&nbsp;/&nbsp;</a></li>
-                    <li><a href="">Layanan</a></li>
-                    <li class="active">&nbsp;/&nbsp;Data Layanan</li>
+                    <li><a href="">Loket</a></li>
+                    <li class="active">&nbsp;/&nbsp;Data Loket</li>
                 </ol>
             </div>    
             </div>    
@@ -15,34 +15,32 @@
 			<thead class="thead-dark">
 				<tr>
                     <th scope="col">NO</th>
-                    <th scope="col">NAMA LAYANAN</th>
-                    <th scope="col">KODE</th>
+                    <th scope="col">NAMA LOKET</th>
                     <th scope="col">STATUS</th>
-                    <th scope="col">ID INSTANSI</th>
-                    <th scope="col">ID KATEGORI</th>
                     <th scope="col">ACTION</th>
 				</tr>
             </thead>
              <tbody>
                 <?php 
                 $i=1;
-                foreach ($layanan as $rows) : ?>
+                foreach ($loket as $rows) : ?>
                     <tr>
                         <td><?php echo $i++; ?></td>
-                        <td><?php echo $rows->nama_layanan; ?></td>
-                        <td><?php echo $rows->kode; ?></td>
-                        <td><?php echo $rows->status; ?></td>
-                        <td><?php echo $rows->id_instansi; ?></td>
-                        <td><?php echo $rows->id_kategori_layanan; ?></td>
+                        <td>Loket <?php echo $rows->loket; ?></td>
+                        <td><?php echo $rows->status; ?>
+                            </td>
                         <td>
-                            <a href="<?php echo site_url(); ?>layananclient/put/<?php echo $rows->id_layanan; ?>" class="btn btn-warning">
+                            <a href="<?php echo site_url(); ?>loketclient/put/<?php echo $rows->id_loket; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>
-                            <a href="<?= base_url(); ?>layananclient/delete/<?= $rows->id_layanan ;?>" class="btn btn-danger"
+                            <a href="<?=  base_url(); ?>loketclient/delete/<?= $rows->id_loket ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
                             <i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                     </tr>
-                 <?php endforeach; ?>
+                 <?php endforeach; 
+                //  print_r($loket);
+                //  exit;
+                 ?>
                 </tbody>
             </table>        
                             </div>
@@ -50,6 +48,3 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>

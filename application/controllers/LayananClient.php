@@ -23,24 +23,47 @@ class LayananClient extends CI_Controller
         $this->load->view('footer1');
     }
 
-    public function post_process()
+    public function put()
+    {
+        $params = array('id_layanan' =>  $this->uri->segment(3));
+        $data['layanan'] = json_decode($this->curl->simple_get($this->API, $params));
+        $data['title'] = "Edit Data Layanan";
+        $this->load->view('header0');
+        $this->load->view('bar');
+        $this->load->view('data/put/layanan', $data);
+        $this->load->view('footer');
+
+    }
+    public function put_process()
     {
         $data = array(
-            'id_menu'          => $this->input->post('id_menu2'),
-            'id_pelanggan'         => $this->input->post('id_pelanggan2'),
-            'jumlah'         => $this->input->post('jumlah'),
-            'total'         => $this->input->post('total'),
-            'alamat'         => $this->input->post('alamat'),
-            'tanggal'       => $this->input->post('tanggal'),
+            'id_layanan'          => $this->input->post('id_layanan'),
+            'nama_layanan'         => $this->input->post('nama_layanan'),
+            'kode'                 => $this->input->post('kode'),
+            'status'               => $this->input->post('status'),
+            'id_instansi'          => $this->input->post('id_instansi'),
+            'id_kategori_layanan'  => $this->input->post('id_kategori_layanan'),
         );
-
-        $update =  $this->curl->simple_post($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
+        $update =  $this->curl->simple_put($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
+        // print_r($update);
+        // exit;
         if ($update) {
-            $this->session->set_flashdata('result', 'Order Menu Berhasil');
+            $this->session->set_flashdata('result', 'Update Data Loket Berhasil');
         } else {
-            $this->session->set_flashdata('result', 'Order Menu Gagal');
+            $this->session->set_flashdata('result', 'Update Data Loket Gagal');
         }
-        redirect('userclient');
+        redirect('layananclient');
+    }
+    public function delete()
+    {
+        $params = array('id_layanan' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Layanan Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Layanan Gagal');
+        }
+        redirect('layananclient');
     }
 
 }

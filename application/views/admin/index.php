@@ -36,130 +36,6 @@
     <section class="content" >
       <div class="container-fluid">
         <div class="row">
-
-
-            <div class="card bg-gradient-info" style="margin-left:7px">
-              <h3 class="card-title" style="margin-right: 1010px;">
-              </h3>
-                <br>
-                <br>
-              </div>              
-          <div class="card bg-gradient-info" style="margin-left:7px">
-            <div class="card-header border-0"  style="height: 480px; width:500px " >
-              <h3 class="card-title" style="margin-right: 85px;">
-                <i class="fas fa-th mr-1 "></i>
-                Grafik 
-              </h3>
-              <div class="card-tools">
-
-                <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-              
-                <br>
-                <br>
-              <style>
-#chart{
- z-index:-10;} 
-</style>
-<body>
- <div id="chart">
- </div>
-      <script src="<?=base_url('assets');?>/highcharts/jquery.min.js" type="text/javascript"></script>
-      <script src="<?=base_url('assets');?>/highcharts/highcharts.js" type="text/javascript"></script>
-      <script src="<?=base_url('assets');?>/highcharts/modules/exporting.js" type="text/javascript"></script>
-      <script src="<?=base_url('assets');?>/highcharts/modules/offline-exporting.js" type="text/javascript"></script>
-      <script type="text/javascript">
-  jQuery(function(){
-    new Highcharts.Chart({
-        chart: {
-        renderTo: 'chart',
-        type: 'line',
-        },
-        title: {
-        text: 'Grafik Statistik Antrian',
-        x: -20
-        },
-        subtitle: {
-        text: 'Count Antrian',
-        x: -20
-        },
-        xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des']
-        
-      },
-        yAxis: {
-        title: {
-          text: 'Total pengunjung'
-        }
-      },
-        series: [{
-        name: 'Data dalam Bulan',
-        data: <?php echo json_encode($antrian); ?>
-        }]
-      });
-    }); 
-</script>   
-</div>
-</div>
-
-<div class="card bg-gradient-info" style="margin-left:7px">
-          
-          <div class="card-header border-0"  style="height: 480px; width:500px " >
-            <h3 class="card-title" style="margin-right: 85px;">
-              <i class="fas fa-th mr-1 "></i>
-              Grafik 
-            </h3>
-            <div class="card-tools">
-              <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-              <br>
-              <br>
-
-<body>
-<div id="chart1">
-</div>
-    <script src="<?=base_url('assets');?>/highcharts/jquery.min.js" type="text/javascript"></script>
-    <script src="<?=base_url('assets');?>/highcharts/highcharts.js" type="text/javascript"></script>
-    <script src="<?=base_url('assets');?>/highcharts/modules/offline-exporting.js" type="text/javascript"></script>
-    <script type="text/javascript">
-jQuery(function(){
-  new Highcharts.Chart({
-      chart: {
-      renderTo: 'chart1',
-      type: 'line',
-      },
-      title: {
-        text: 'Grafik Statistik Antrian',
-      x: -20
-      },
-      subtitle: {
-      text: 'Count Antrian',
-      x: -20
-      },
-      xAxis: {
-      
-      },
-      yAxis: {
-      title: {
-        text: 'Total pengunjung'
-      }
-      },
-      series: [{
-      name: 'Data dalam Bulan',
-      data: <?php echo json_encode($antrian); ?>
-      }]
-    });
-  }); 
-</script>
-</body>   
-</div>
-</div>
-
-
     <body>
            <div class="col-lg-2 col-6">          
                   <br>
@@ -310,10 +186,132 @@ jQuery(function(){
               </div>
               <a href="<?php echo site_url(); ?>logclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-
-<br>
+            <br>
         </div>
-</body>
+                    <div class="card bg-gradient-info" style="margin-left:7px">
+              <h3 class="card-title" style="margin-right: 1010px;">
+              </h3>
+                <br>
+                <br>
+              </div>              
+          <div class="card bg-gradient-info" style="margin-left:7px">
+            <div class="card-header border-0"  style="height: 480px; width:500px " >
+              <h3 class="card-title" style="margin-right: 85px;">
+                <i class="fas fa-th mr-1 "></i>
+                Grafik 
+              </h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+                <br>
+                <br>
+                
+              <style>
+#chart{
+ z-index:-10;} 
+</style>
+<body>
+ <div id="chart">
+ </div>
+      <script src="<?=base_url('assets');?>/highcharts/jquery.min.js" type="text/javascript"></script>
+      <script src="<?=base_url('assets');?>/highcharts/highcharts.js" type="text/javascript"></script>
+      <script src="<?=base_url('assets');?>/highcharts/modules/exporting.js" type="text/javascript"></script>
+      <script src="<?=base_url('assets');?>/highcharts/modules/offline-exporting.js" type="text/javascript"></script>
+      <script type="text/javascript">
+  jQuery(function(){
+    new Highcharts.Chart({
+        chart: {
+        renderTo: 'chart',
+        type: 'column',
+        },
+        title: {
+        text: 'Grafik Statistik Antrian',
+        x: -20
+        },
+        subtitle: {
+        text: 'Count Antrian',
+        x: -20
+        },
+        xAxis: {
+          categories: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des ']
+      },
+      exporting: { 
+            enabled: false 
+        },
+        yAxis: {
+        title: {
+          text: 'Total pengunjung'
+        }
+      },
+        series: [{
+        name: 'Data dalam Bulan',
+        data: <?php echo json_encode($antrian); ?>
+        }]
+      });
+    }); 
+</script>   
+</div>
+</div>
+
+<div class="card bg-gradient-info" style="margin-left:7px">
+          
+          <div class="card-header border-0"  style="height: 480px; width:500px " >
+            <h3 class="card-title" style="margin-right: 85px;">
+              <i class="fas fa-th mr-1 "></i>
+              Grafik 
+            </h3>
+            <div class="card-tools">
+              <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+              <br>
+              <br>
+
+<body>
+<div id="chart1">
+</div>
+    <script src="<?=base_url('assets');?>/highcharts/jquery.min.js" type="text/javascript"></script>
+    <script src="<?=base_url('assets');?>/highcharts/highcharts.js" type="text/javascript"></script>
+    <script src="<?=base_url('assets');?>/highcharts/modules/offline-exporting.js" type="text/javascript"></script>
+    <script type="text/javascript">
+jQuery(function(){
+  new Highcharts.Chart({
+      chart: {
+      renderTo: 'chart1',
+      type: 'pie',
+      },
+      title: {
+        text: 'Grafik Statistik Antrian',
+      x: -20
+      },
+      subtitle: {
+      text: 'Count Antrian',
+      x: -20
+      },
+      xAxis: {
+        categories: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des ']
+      
+      },
+      yAxis: {
+      title: {
+        text: 'Total pengunjung'
+      }
+      },
+      series: [{
+      name: 'Data dalam Bulan',
+      data: <?php echo json_encode($antrian); ?>
+      }]
+    });
+  }); 
+</script>
+</body>   
+</div>
+</div>
+
 <script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/adminlte.js"></script>
 <script src="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/dist/js/pages/dashboard.js"></script>
 

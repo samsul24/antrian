@@ -18,32 +18,53 @@ public function get_user()
     function grafik() { 
         $sql= $this->db->query("
             select
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=2020))),0) AS `Januari`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=2020))),0) AS `Februari`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=2020))),0) AS `Maret`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=2020))),0) AS `April`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=2020))),0) AS `Mei`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=2020))),0) AS `Juni`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=2020))),0) AS `Juli`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=2020))),0) AS `Agustus`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=2020))),0) AS `September`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=2020))),0) AS `Oktober`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=2020))),0) AS `November`,
-            ifnull((SELECT count(id_antrian) FROM (antrian)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=2020))),0) AS `Desember`
-            from antrian WHERE id_instansi=11 GROUP BY year(tanggal) ");
-    
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND (Month(tanggal)=1)AND (YEAR(tanggal)=2019))),0) AS `Januari`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=2)AND (YEAR(tanggal)=2019))),0) AS `Februari`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=3)AND (YEAR(tanggal)=2019))),0) AS `Maret`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=4)AND (YEAR(tanggal)=2019))),0) AS `April`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=5)AND (YEAR(tanggal)=2019))),0) AS `Mei`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=6)AND (YEAR(tanggal)=2019))),0) AS `Juni`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=7)AND (YEAR(tanggal)=2019))),0) AS `Juli`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=8)AND (YEAR(tanggal)=2019))),0) AS `Agustus`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=9)AND (YEAR(tanggal)=2019))),0) AS `September`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=10)AND (YEAR(tanggal)=2019))),0) AS `Oktober`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=11)AND (YEAR(tanggal)=2019))),0) AS `November`,
+            ifnull((SELECT COUNT(nomor) FROM (antrian)WHERE((id_instansi)=11 AND(Month(tanggal)=12)AND (YEAR(tanggal)=2019))),0) AS `Desember`
+            from antrian where id_instansi=11 and year(tanggal)=2019 GROUP BY year(tanggal) ");
     return $sql;
     
  } 
- function grafik_tunggu() { 
-    $sql= $this->db->query("
-        select
-        (SELECT count(id_antrian) FROM (antrian)WHERE status=1 AND  id_instansi=11) AS `senin`,
-        (SELECT count(id_antrian) FROM (antrian)WHERE status=2 AND  id_instansi=11) AS `selasa`,
-        (SELECT count(id_antrian) FROM (antrian)WHERE status=3 AND  id_instansi=11) AS `rabu`,
-        (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `kamis`
-        from antrian WHERE GROUP BY id_instansi ");
-return $sql;
- }
+ public function get_loket()
+    {
+        $this->db->select('id_loket,loket');
+        $this->db->from('loket');
+        $this->db->where('status', 'Kosong');
+        $query = $this->db->get();
+        if ($query->num_rows() >= 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+    public function choice($id_loket)
+    {
+        $this->db->set('status', 'Kosong');
+        $this->db->from('loket');
+        $this->db->where('id_loket', $id_loket);                
+        $this->db->update();
+    }
+//  function grafik_tunggu() { 
+//     $sql1= $this->db->query("
+//         select
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=1 AND  id_instansi=11) AS `Senin`,
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=2 AND  id_instansi=11) AS `Selasa`,
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=3 AND  id_instansi=11) AS `Rabu`,
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Kamis`
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Jumat`
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Sabtu`
+//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Minggu`
+//         from layanan WHERE id_instansi=11 ");
+// return $sql1;
+//  }
 }
 ?>
