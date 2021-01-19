@@ -37,6 +37,94 @@
       <div class="container-fluid">
         <div class="row">
     <body>
+
+    <div class="col-lg-2 col-6" style="margin-left:200px;"><br>
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h1 style="font-size: 40px; color: #20B2AA;">
+            <!-- <i class="ion ion-android-alarm-clock"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <a href="" class="small-box-header"><h1 align="center" style='color: white;' >Loket 1 </h1> </a>
+         </div>
+            <div class="small-box bg-white">
+            <a ><h5 align="center" style='color: black; ' > 
+        <br>
+            <?php  
+            $this->db->where('id_loket', 1);
+            $loket = $this->db->get('loket')->row('status');
+            print_r($loket);
+            ?>
+             </h5></a>
+        <br>
+         </div>
+      </div>
+  </div>
+    <div class="col-lg-2 col-6"><br>
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h1 style="font-size: 40px; color: #20B2AA;">
+            <!-- <i class="ion ion-android-alarm-clock"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <a href="" class="small-box-header"><h1 align="center" style='color: white;' >Loket 2 </h1> </a>
+         </div>
+            <div class="small-box bg-white">
+            <a ><h5 align="center" style='color: black; ' > 
+        <br>
+            <?php  
+            $this->db->where('id_loket', 2);
+            $loket = $this->db->get('loket')->row('status');
+            print_r($loket);
+            ?>
+             </h5></a>
+        <br>
+         </div>
+      </div>
+  </div>
+    <div class="col-lg-2 col-6"><br>
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h1 style="font-size: 40px; color: #20B2AA;">
+            <!-- <i class="ion ion-android-alarm-clock"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <a href="" class="small-box-header"><h1 align="center" style='color: white;' >Loket 3 </h1> </a>
+         </div>
+            <div class="small-box bg-white">
+            <a ><h5 align="center" style='color: black; ' > 
+        <br>
+            <?php  
+            $this->db->where('id_loket', 3);
+            $loket = $this->db->get('loket')->row('status');
+            print_r($loket);
+            ?>
+             </h5></a>
+        <br>
+         </div>
+      </div>
+  </div>
+    <div class="col-lg-2 col-6"><br>
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h1 style="font-size: 40px; color: #20B2AA;">
+            <!-- <i class="ion ion-android-alarm-clock"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <a href="" class="small-box-header"><h1 align="center" style='color: white;' >Loket 4 </h1> </a>
+         </div>
+            <div class="small-box bg-white">
+            <a ><h5 align="center" style='color: black; ' > 
+        <br>
+            <?php  
+            $this->db->where('id_loket', 4);
+            $loket = $this->db->get('loket')->row('status');
+            print_r($loket);
+            ?>
+             </h5></a>
+        <br>
+         </div>
+      </div>
+  <br>
+  </div>
+
+    
+    <div class="card bg-gradient-info" style="margin-left:7px">
+      <h3 class="card-title" style="margin-right: 1300px;"></h3><br> <br>
+    </div>       
+    
            <div class="col-lg-2 col-6">          
                   <br>
                 <div class="small-box bg-white">
@@ -58,7 +146,7 @@
                 <div class="small-box bg-white">
                   <div class="inner">
                     <h3 style="font-size: 40px; color:#DAA520;">
-                  <i class="ion ion-person-stalker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <i class="ion ion-person-stalker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php  
                $this->db->where('status', 2);
                $this->db->where('id_instansi', 11);
@@ -73,7 +161,7 @@
                 <div class="small-box bg-white">
                   <div class="inner">
                   <h1 style="font-size: 40px; color: #B22222;">
-                    <i class="ion ion-checkmark-round"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="ion ion-checkmark-round"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php  
                $this->db->where('status', 3);
                $this->db->where('id_instansi', 11);
@@ -131,7 +219,6 @@
               <a href="<?php echo site_url(); ?>userclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-
           <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
               <div class="inner">
@@ -163,7 +250,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
-
               </div>
               <a href="<?php echo site_url(); ?>layananclient" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -189,11 +275,14 @@
             <br>
         </div>
                     <div class="card bg-gradient-info" style="margin-left:7px">
-              <h3 class="card-title" style="margin-right: 1010px;">
+              <h3 class="card-title" style="margin-right: 1300px;">
               </h3>
                 <br>
                 <br>
-              </div>              
+              </div>      
+              
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">        
           <div class="card bg-gradient-info" style="margin-left:7px">
             <div class="card-header border-0"  style="height: 480px; width:500px " >
               <h3 class="card-title" style="margin-right: 85px;">
@@ -205,6 +294,8 @@
                 <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
                   <i class="fas fa-times"></i>
                 </button>
+              </div>
+              </div>
               </div>
                 <br>
                 <br>

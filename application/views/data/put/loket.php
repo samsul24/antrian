@@ -17,15 +17,19 @@
                 <form action="<?php echo site_url('loketclient/put_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
                     <?php foreach ($loket as $rows) : ?>
                         <div class="form-group">
-                                <label for="id_loket">Loket :</label>
+                                <label for="id_loket">ID Loket :</label>
                                 <input type="text" class="form-control" id="id_loket" placeholder="ID Loket" value="<?php echo $rows->id_loket; ?>" name="id_loket" required readonly>
+                            </div>
+                        <div class="form-group">
+                                <label for="loket">No Loket :</label>
+                                <input type="text" class="form-control" id="loket" placeholder="Loket" value="<?php echo $rows->loket; ?>" name="loket" required readonly>
                             </div>
                         <div class="form-group">
                             <label for="sel1" >Status Loket :</label>
                                 <input type="text" class="form-control" id="selected" value="<?php echo $rows->status; ?>">
                                  <select class="form-control" id="status" name="status" required>
                                         <option value="Kosong">Kosong</option>
-                                        <option value="Sedang Digunakan">Sedang digunakan</option>
+                                        <option value="Digunakan">Digunakan</option>
                                         <option value="Istirahat">Istirahat</option>
                                 </select>
                         </div>
