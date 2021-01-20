@@ -279,10 +279,7 @@
               </h3>
                 <br>
                 <br>
-              </div>      
-              
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-danger">        
+              </div>  
           <div class="card bg-gradient-info" style="margin-left:7px">
             <div class="card-header border-0"  style="height: 480px; width:500px " >
               <h3 class="card-title" style="margin-right: 85px;">
@@ -294,8 +291,6 @@
                 <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
                   <i class="fas fa-times"></i>
                 </button>
-              </div>
-              </div>
               </div>
                 <br>
                 <br>

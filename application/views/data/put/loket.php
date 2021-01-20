@@ -1,6 +1,6 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
 <div class="cc">
-        <div class="row">
+    <div class="row">
         <div class="col-lg-12">
             <h1 >Loket</h1>
                 <ol class="breadcrumb">
@@ -8,11 +8,11 @@
                     <li><a href="">Loket</a></li>
                     <li class="active">&nbsp;/&nbsp;Data Loket&nbsp;/&nbsp;Edit Loket</li>
                 </ol>
-            </div>    
-            </div>    
-            <div class="row" >
-            <div class="col-md-3" ></div>
-            <div class="col-md-6">
+        </div>    
+    </div>    
+<div class="row" >
+    <div class="col-md-3" ></div>
+        <div class="col-md-6">
             <div class="box">
                 <form action="<?php echo site_url('loketclient/put_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
                     <?php foreach ($loket as $rows) : ?>
@@ -46,18 +46,14 @@
                                             eid.options[i].selected = true;
                                     }
                                 }
-
                                 var eid = "loket";
                                 var etxt = document.getElementById("selected").value;
                                 document.getElementById("selected").style.display = "none";
                                 setSelectBoxByText(eid, etxt)
                             </script>
-                                   
-                        <?php endforeach; 
-                                    // print_r($loket);
-                                    // exit;
-                        ?>
-                    </form>
-                </div>
+                        <?php endforeach;?>
+                </form>
             </div>
         </div>
+    </div>
+</div>

@@ -87,15 +87,53 @@
       <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-5" src="<?=base_url();?>css/assets/img/logo-kecil.png" alt=""><br>KEMENAG KOTA MALANG</h1><br>
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
-            <h3>NO ANTRIAN SAAT INI</h3>
-          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian','id_instansi', 11)->num_rows(); ?>
-        </h1>
+           <h3>NO ANTRIAN SAAT INI</h3>
+            <h1 style="margin-top: 5px;"> 
+            </h1>
           </div>
+      </div>
+        <div class="row" style="margin-top: 60px">
+          <div class="col-md-4" style="border: thin solid; margin:center; ">
+          <h3><?php 
+          $tgl = date('Y-m-d');
+          $this->db->like('tanggal', $tgl);
+          $this->db->select_max('nomor');
+          $this->db->where('id_layanan', 46);
+          $this->db->where('id_instansi', 11);
+          $antrian = $this->db->get('antrian')->row('nomor');
+          print_r($antrian);
+          ?></h3>
+            <!-- <h3><?php echo $nomor; ?></h3> -->
+            <H6>UMUM DAN KESEKRETARIATAN</H6>
+          </div>
+          <div class="col-md-4" style="border: thin solid; ">
+          <h3><?php 
+           $tgl = date('Y-m-d');
+           $this->db->like('tanggal', $tgl);
+           $this->db->select_max('nomor');
+           $this->db->where('id_layanan', 47);
+           $this->db->where('id_instansi', 11);
+           $antrian = $this->db->get('antrian')->row('nomor');
+           print_r($antrian); 
+          ?></h3>
+            <H6>PENDIDIKAN</H6></div>
+          <div class="col-md-4" style="border: thin solid; ">
+          <h3><?php 
+           $tgl = date('Y-m-d');
+           $this->db->like('tanggal', $tgl);
+           $this->db->select_max('nomor');
+           $this->db->where('id_layanan', 48);
+           $this->db->where('id_instansi', 11);
+           $antrian = $this->db->get('antrian')->row('nomor');
+           print_r($antrian); 
+          ?></h3>
+            <H6>AGAMA DAN PHU </H6></div>
+        </div>
       </div>
   
         <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Kementrian Agama Kota Malang 
         <br>Silahkan Ambil No Antrian</h4>
-        <div class="col-md-2">
+        <div class="col-md-2" style="margin-left:545px;">
                 <a href="<?php echo site_url(); ?>antrianclient" class="btn btn-dark btn-block banner" role="button" style="margin: center">
                   Ambil Antrian                </a>
             </div>
