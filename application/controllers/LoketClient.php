@@ -20,7 +20,7 @@ class LoketClient extends CI_Controller
         $this->load->view('header0');
         $this->load->view('bar');
         $this->load->view('data/loket', $data, FALSE);
-        $this->load->view('footer1');
+        $this->load->view('footer');
     }
     public function put()
     {

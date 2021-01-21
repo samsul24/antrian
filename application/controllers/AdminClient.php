@@ -35,6 +35,7 @@ class AdminClient extends CI_Controller
         $this->load->view('bar');
         $this->load->view('admin/index', $data, FALSE);
         $this->load->view('footer1');
+        $this->load->view('footer');
     }
 
     // public function index1()

@@ -1,32 +1,62 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
-    <div class="cc">
+<div class="cc">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid" >
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-tablet" ></i> Data Laporan</h2>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+      <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp;  &nbsp;<i class="nav-icon fas fa-tablet"></i> Laporan
+        </div>
         <div class="row">
-        <div class="col-lg-12">
-            <h1 >Laporan</h1>
-                <ol class="breadcrumb">
-                    <li><a href=""><span class="fa fa-home"></span>&nbsp;/&nbsp;</a></li>
-                    <li><a href="">Laporan</a></li>
-                    <li class="active">&nbsp;/&nbsp;Data Laporan</li>
-                </ol>
-            </div>    
-            </div>    
-
-	<div class="tableSize">
-		<table class="table" id="myTable">
-			<thead class="thead-dark">
-				<tr>
-                    <th scope="col">NO</th>
-                    <th scope="col">TANGGAL</th>
-                    <th scope="col">NOMOR</th>
-                    <th scope="col">NAMA INSTANSI</th>
-                    <th scope="col">LAYANAN</th>
-                    <th scope="col">DATANG</th>
-                    <th scope="col">PANGGIL</th>
-                    <th scope="col">SELESAI</th>
-                    <th scope="col">STATUS</th>
-				</tr>
-            </thead>
-             <tbody>
+          <div class="col"> 
+              <!-- Tabel -->
+              <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body" >
+                <div class='card-header' style="margin-left:-20px;">
+                    <a class='btn btn-success'href="<?php echo site_url(); ?>laporanclient/exsport">
+                    <i class="fa fa-file-excel"></i>
+                    <span>
+                        Ekspor
+                    </span>
+                    </a>
+                    <a class='btn btn-danger'href="<?php echo site_url(); ?>laporanpdf">
+                    <i class="fa fa-file-pdf"></i>
+                    <span >
+                        Pdf
+                    </span>
+                    </a>
+            </div>   
+                 
+              <table id="tabel" class="table table-bordered">
+                <thead>
+                
+                <tr>
+                  <th>No</th>
+                  <th>Tanggal</th>
+                  <th>Nomor</th>
+                  <th>Id Instansi</th>
+                  <th>Id Layanan</th>
+                  <th>Waktu Datang</th>
+                  <th>Waktu Panggil</th>
+                  <th>Waktu Selesai</th>
+                  <th>Status</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
                 <?php $i= 1;
                  foreach ($laporan as $rows) : ?>
                     <tr>
@@ -41,14 +71,19 @@
                         <td><?php echo $rows->status; ?></td>
                         
                     </tr>
-                 <?php endforeach; ?>
+                    <?php endforeach ; ?>
                 </tbody>
-            </table>        
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </table>             
+            <!-- /.card-body -->
+          </div>
             </div>
+          </div>
         </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
     </div>
-</div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+

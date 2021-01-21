@@ -20,7 +20,7 @@ class UserClient extends CI_Controller
         $this->load->view('header0');
         $this->load->view('bar');
         $this->load->view('data/user', $data, FALSE);
-        $this->load->view('footer1');
+        $this->load->view('footer');
     }
     public function put()
     {

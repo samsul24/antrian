@@ -3,9 +3,9 @@
   <div class="tableSize">
 <head>
 <link href='<?=base_url("assets/uploads/images/avatar.png"); ?>' rel='shortcut icon' type='image/x-icon' />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/jqvmap/jqvmap.min.css">
@@ -13,32 +13,38 @@
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?=base_url('assets');?>/vendor/AdminLTE-3.0.5/plugins/summernote/summernote-bs4.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
 </head>
 	
-  <div class="content-wrapper" style="margin-left:-5px; margin-right:5px; position: relative;">
+<div class="content-wrapper" >
+    <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="container-fluid" >
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark" ><i class="nav-icon fas fa-chart-line"></i> Dashboard</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">admin</li>
-            </ol>
-          </div>
-        </div>
-      </div>
+            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-home" ></i> Dashboard</h2>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <div class="content" >
+      <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+      <i class="nav-icon fas fa-home"></i> Dashboard
+        </div>
+        <div class="row">
+          <div class="col"> 
+              <div class="card">
+            <div class="card-body">
                   
     <section class="content" >
       <div class="container-fluid">
         <div class="row">
     <body>
 
-    <div class="col-lg-2 col-6" style="margin-left:200px;"><br>
+    <div class="col-lg-2 col-6" style="margin-left:170px;"><br>
       <div class="small-box bg-blue">
         <div class="inner">
           <h1 style="font-size: 40px; color: #20B2AA;">
@@ -161,7 +167,7 @@
                 <div class="small-box bg-white">
                   <div class="inner">
                   <h1 style="font-size: 40px; color: #B22222;">
-                    <i class="ion ion-checkmark-round"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="ion ion-checkmark-round"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php  
                $this->db->where('status', 3);
                $this->db->where('id_instansi', 11);
@@ -177,7 +183,7 @@
                 <div class="small-box bg-white">
                   <div class="inner">
                     <h3 style="font-size: 40px; color: #9932CC;">
-                  <i class="ion ion-thumbsdown"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <i class="ion ion-thumbsdown"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php  
                $this->db->where('status', 4);
                $this->db->where('id_instansi', 11);
@@ -193,7 +199,7 @@
                   <div class="inner">
                     <h3 style="font-size: 40px; color: #1E90FF;">
                   <i class="ion ion-thumbsup subdued"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php  
                $this->db->where('id_instansi', 11);
                $antrian = $this->db->get('antrian')->num_rows();
@@ -281,7 +287,7 @@
                 <br>
               </div>  
           <div class="card bg-gradient-info" style="margin-left:7px">
-            <div class="card-header border-0"  style="height: 480px; width:500px " >
+            <div class="card-header border-0"  style="height: 480px; width:487px " >
               <h3 class="card-title" style="margin-right: 85px;">
                 <i class="fas fa-th mr-1 "></i>
                 Grafik 
@@ -344,7 +350,7 @@
 
 <div class="card bg-gradient-info" style="margin-left:7px">
           
-          <div class="card-header border-0"  style="height: 480px; width:500px " >
+          <div class="card-header border-0"  style="height: 480px; width:487px " >
             <h3 class="card-title" style="margin-right: 85px;">
               <i class="fas fa-th mr-1 "></i>
               Grafik 

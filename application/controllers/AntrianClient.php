@@ -23,7 +23,23 @@ class AntrianClient extends CI_Controller
         // $this->load->view('header0');
         // $this->load->view('bar');
         $this->load->view('user/antrian', $data);
-        // $this->load->view('footer1');
+        // $this->load->view('footer');
+    }
+    public function post_process()
+    {
+        $data = array(
+            'tanggal'         => $this->input->post('kategori'),
+            'nama_layanan'         => $this->input->post('harga'),
+            'kode'         => $this->input->post('kode'),
+            'nomor'          => $this->input->post('nomor'),
+        );
+        $insert =  $this->curl->simple_post($this->API, $data);
+        if ($insert) {
+            $this->session->set_flashdata('result', 'Data Antrian Berhasil Ditambahkan');
+        } else {
+            $this->session->set_flashdata('result', 'Data Antrian Gagal Ditambahkan');
+        }
+        redirect('Antrianclient');
     }
 }
 ?>

@@ -51,7 +51,7 @@
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Antrian Kemenag</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
+        Menu 
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -166,7 +166,7 @@
             <div class="row justify-content-md-center">
               <div class="col-md-12" style="margin-top: 20px">
                 <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo base_url().'antrian/saveAntrian' ?>" method="post">
+                <form action="<?php echo site_url(); ?>antrianclient/post_process" class="needs-validation" method="POST">
                 <div class ="row">
                 <div class ="col-md-2">
                   <h6><label>Tanggal Antrian</label></h6>   
@@ -207,7 +207,6 @@
                     <div class="col-md-5">
                       <?php foreach ($antrian1 as $rows) : ?>
                         <tr><td></td><td>
-
                         <input value="<?php 
                         echo $rows->nomor; ?>" nama="nomor" type="text" id="nomor" disabled="" required readonly>  
                         </td>
@@ -235,16 +234,12 @@
                   </ol>
               </div>
               </div>
-
-
             </div>
           </div>
-
         </div>
         <!-- /.row -->
       </div>
   </section>
-
   <!-- About Section -->
   <section class="page-section bg-primary text-white mb-0" id="bantuan">
     <div class="container">
@@ -260,45 +255,36 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-
       <!-- About Section Content -->
     <div class="container">  
       <div class="row">
         <div class="col-lg-4.ml-auto" align="center" >
-        <p class="lead">Klik Antrian > Pilih Layanan > Klik Cetak</p></center>
+        <p class="lead">Klik Ambil Antrian > Pilih Layanan > Klik Submit</p></center>
           <p class="lead"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
       </div>
     </div>
     </div>
   </section>
-
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
       <small>&copy; Antrian KEMENAG Kota Malang </small>
     </div>
   </section>
-
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
   <div class="scroll-to-top d-lg-none position-fixed ">
     <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
       <i class="fa fa-chevron-up"></i>
     </a>
   </div>
-
-
-
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Plugin JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Contact Form JavaScript -->
   <script src="<?php echo base_url('assets/user')?>/js/jqBootstrapValidation.js"></script>
   <script src="<?php echo base_url('assets/user')?>/js/contact_me.js"></script>
-
   <!-- Custom scripts for this template -->
   <script src="<?php echo base_url('assets/user')?>/js/freelancer.min.js"></script>
   <script src="<?php echo base_url('assets/user')?>/lib/noty.min.js"></script>
@@ -310,7 +296,6 @@
       $("#id_antrian").change(function() {
         document.getElementById("nomor").value = $(this).find('option:selected').attr('data-price1');
       });
-      
     });
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

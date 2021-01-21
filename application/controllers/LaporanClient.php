@@ -9,6 +9,7 @@ class LaporanClient extends CI_Controller
     {
         parent::__construct();
         $this->load->library('curl');
+        // $this->load->library('pdf');
         
         $this->API = "http://localhost:8080/antrian/laporan";
     }
@@ -16,12 +17,11 @@ class LaporanClient extends CI_Controller
     public function index()
     {
         $data['laporan'] = json_decode($this->curl->simple_get($this->API));
-        // $data['laporan'] = $this->admin_model->join()->result();
-        $data['title'] = "Log";
+        $data['title'] = "Laporan";
         $this->load->view('header0');
         $this->load->view('bar');
         $this->load->view('data/laporan', $data, FALSE);
-        $this->load->view('footer1');
+        $this->load->view('footer');
     }
 }
 ?>
