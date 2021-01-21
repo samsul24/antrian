@@ -16,7 +16,7 @@ Changelog:
 * Updated documentation
 * Updated examples (thanks @ivantcholakov and @lagaisse)
 * Updated many functions by re-writing (thanks @softwarespot)
-* Updated performance increase
+* Updated performance increase 
 
 ### 2.7.0
 
