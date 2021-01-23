@@ -100,6 +100,7 @@
           $this->db->select_max('nomor');
           $this->db->where('id_layanan', 46);
           $this->db->where('id_instansi', 11);
+          $this->db->where('status', 2);
           $antrian = $this->db->get('antrian')->row('nomor');
           print_r($antrian);
           ?></h3>
@@ -113,6 +114,7 @@
            $this->db->select_max('nomor');
            $this->db->where('id_layanan', 47);
            $this->db->where('id_instansi', 11);
+          $this->db->where('status', 2);
            $antrian = $this->db->get('antrian')->row('nomor');
            print_r($antrian); 
           ?></h3>
@@ -124,6 +126,7 @@
            $this->db->select_max('nomor');
            $this->db->where('id_layanan', 48);
            $this->db->where('id_instansi', 11);
+          $this->db->where('status', 2);
            $antrian = $this->db->get('antrian')->row('nomor');
            print_r($antrian); 
           ?></h3>

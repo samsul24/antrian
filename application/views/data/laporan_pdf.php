@@ -9,6 +9,7 @@
     <p style="text-align:center;margin:0;padding:0">Telp : (0341) 491605 &nbsp;&nbsp;Email : kotamalang@kemenag.go.id</p>
     <hr>
     <br>
+    
                 <style>
             #table {
                 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -66,9 +67,8 @@
                     </tr>
                         <?php endforeach; ?>
 </table>
-<BR>
-<hr>
-
+<br>
+    <hr>
                         <script type="text/javascript">
                             window.print();
                         </script>

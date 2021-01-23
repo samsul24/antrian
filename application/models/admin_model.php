@@ -53,18 +53,12 @@ public function get_user()
         $this->db->where('id_loket', $id_loket);                
         $this->db->update();
     }
-//  function grafik_tunggu() { 
-//     $sql1= $this->db->query("
-//         select
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=1 AND  id_instansi=11) AS `Senin`,
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=2 AND  id_instansi=11) AS `Selasa`,
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=3 AND  id_instansi=11) AS `Rabu`,
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Kamis`
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Jumat`
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Sabtu`
-//         (SELECT count(id_antrian) FROM (antrian)WHERE status=4 AND  id_instansi=11) AS `Minggu`
-//         from layanan WHERE id_instansi=11 ");
-// return $sql1;
-//  }
+    function search($startdate,$enddate){
+        $this->db->where('id_instansi', 11);
+        $this->db->where('tanggal   >', $startdate);
+        $this->db->where('tanggal <', $enddate);
+        $antrian = $this->db->get('antrian')->result();
+        return $antrian;
+    }
 }
 ?>

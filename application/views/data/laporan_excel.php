@@ -1,11 +1,49 @@
 <?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
-<div class="row">
-    <div class="container">
-        <div class="col-md-12">
-            <h2>Export Excel</h2>
-         <form class="" action="<?php echo base_url('laporanexcel') ?>" method="post">
-             <button type="submit" name="button" class="btn btn-primary">Export data</button>
-            </form>
-        </div>
-    </div>
-</div>
+<html>
+<?php 
+
+header("Content-type: application/octet-stream");
+
+header("Content-Disposition: attachment; filename=$title.xls");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+
+?>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+ <th>Nama</th>
+
+ <th>Username</th>
+
+ <th>Password</th>
+
+ </tr>
+
+</thead>
+
+<tbody>
+
+<?php $i=1; foreach($user as $user) { ?>
+
+<tr>
+
+ <td><?php echo $user->nama ?></td>
+
+ <td><?php echo $user->username ?></td>
+
+ <td><?php echo $user->password ?></td>
+
+ </tr>
+
+<?php $i++; } ?>
+
+</tbody>
+
+</table>

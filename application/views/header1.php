@@ -18,6 +18,7 @@
 <title>KEMENAG KOTA MALANG </title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
+<link rel="shortcut icon" href="<?php echo base_url();?>css/assets/img/logo-kecil.png">
 
 <link rel="icon" href="<?php echo base_url() ?>css/assets/img/logo-kecil.png">
 <link href="<?php echo base_url() ?>css/assets/img1/apple-touch-icon.png" rel="apple-touch-icon">
