@@ -77,15 +77,6 @@
                 </a>
               </li>
             </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo site_url(); ?>backupdatabase/cetak" class="nav-link" id="navHome">
-                  <i class="fas fa-database"></i>
-                  <p>Backup Data</p>
-                </a>
-              </li>
-            </ul>
-
           <li class="nav-item">
            <a href="<?php echo site_url(); ?>userclient" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-users"></i>

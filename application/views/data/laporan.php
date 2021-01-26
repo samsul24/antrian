@@ -55,8 +55,7 @@
                   <label for="date2">to &ensp;</label>
                     <input type="date" name="tanggal_akhir" class="form-control mr-2">
                   <button type="submit" name="submit" class="btn btn-primary">Cari</button>&nbsp;
-                  <button colspan="2" class="btn btn-danger" type="reset" value="Reset" >Reset</button>
-
+                  <a href="<?php echo site_url(); ?>laporanclient" class="btn btn-danger"> Reset </a>
               </form>
               <br>
             

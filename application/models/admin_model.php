@@ -55,7 +55,7 @@ public function get_user()
     }
     function search($startdate,$enddate){
         $this->db->where('id_instansi', 11);
-        $this->db->where('tanggal   >', $startdate);
+        $this->db->where('tanggal >=', $startdate);
         $this->db->where('tanggal <', $enddate);
         $antrian = $this->db->get('antrian')->result();
         return $antrian;

@@ -22,6 +22,7 @@ class UserClient extends CI_Controller
         $this->load->view('data/user', $data, FALSE);
         $this->load->view('footer');
     }
+    
     public function put()
     {
         $params = array('id_user' =>  $this->uri->segment(3));
