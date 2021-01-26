@@ -12,7 +12,8 @@ Class LaporanExcel extends CI_Controller{
     $this->API = "http://localhost:8080/antrian/laporan";
   
   }
-    public function index(){   
+    public function index(){ 
+        
         $data['laporan'] = json_decode($this->curl->simple_get($this->API));
         require(APPPATH.'PHPExcel-1.8/Classes/PHPExcel.php'); 
         require(APPPATH.'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php'); 
