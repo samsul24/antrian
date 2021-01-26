@@ -25,5 +25,20 @@ class Antrian1 extends REST_Controller
         }
         $this->response($antrian1, 200);
     }
+    function index_post()
+    {
+        $data = array(
+            'tanggal'         => $this->post('tanggal'),
+            'id_layanan'    => $this->post('id_layanan'),
+            'nomor'           => $this->post('nomor'),
+            'status'           => $this->post('status'),
+        );
+        $insert = $this->db->insert('antrian', $data);
+        if ($insert) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
 }
 ?>

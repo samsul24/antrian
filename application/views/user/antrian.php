@@ -58,14 +58,7 @@
         <ul class="navbar-nav ml-auto">
         <?php if(empty($this->session->userdata('id_user'))) {?>
             <li class="nav-item mx-0 mx-lg-1" >
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#registrasi">Login</a>
-            </li>
-          <?php }else{?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"><?php echo $this->session->userdata('nama'); ?></a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?= base_url().'login/out' ?>">Logout</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo site_url(); ?>login">Home</a>
             </li>
           <?php }?>
           <li class="nav-item mx-0 mx-lg-1">
@@ -172,7 +165,7 @@
                   <h6><label>Tanggal Antrian</label></h6>   
                   </div>
                     <div class="col-md-5">
-                      <input type="date" id="tanggal" name="tanggal" class="form-control" value="" placeholder="Tanggal Lahir" required="">
+                      <input type="date" id="tanggal" name="tanggal" class="form-control" value="" placeholder="Tanggal" required="">
                     </div>
                   </div>
                   <br>
@@ -184,7 +177,7 @@
                     <select class="form-control" id="id_layanan" name="id_layanan">
                       <option value="" > Pilih </option>
                       <?php foreach ($antrian as $rows) : ?>
-                          <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->nama_layanan; ?></option>
+                          <option value="<?php echo $rows->id_layanan; ?>" data-price="<?php echo $rows->kode; ?>"><?php echo $rows->id_layanan; ?> - <?php echo $rows->nama_layanan; ?></option>
                       <?php endforeach; ?>
                     </select>
                     </div>
@@ -195,7 +188,7 @@
                       <h6><label>Kode Antrian </label></h6>    
                     </div>
                     <div class="col-md-5">
-                      <input  type="text" name="kode" id="kode" value="" disabled="" class="form-control" required readonly>
+                      <input type="text" name="kode" id="kode" value="" disabled="" class="form-control" required readonly>
                     </div>
                   </div>
                   <br>
@@ -205,15 +198,19 @@
                       <h6><label>No Antrian </label></h6>    
                     </div>
                     <div class="col-md-5">
-                      <?php foreach ($antrian1 as $rows) : ?>
+                    <!-- <input  class="form-control" nama="nomor" type="text" id="kode1" style="width: 20%;margin-right: 67px;" required="" disabled="" > -->
+                      <?php
+                      $i="001";
+                      foreach ($antrian1 as $rows) : ?>
+                      <input type="text" id="nomor" id="kode1" name="nomor" class="form-control" value="<?php echo $i++; ?>" placeholder="" required="" style="width: 20%;margin-right: 67px;" >
+
+                        <!-- <input value="00<?php echo $i++; ?>"class="form-control" nama="nomor" type="text" id="nomor" disabled="" style="width: 90%;margin-right: 67px;"required readonly> -->
                         <tr><td></td><td>
-                        <input value="<?php 
-                        echo $rows->nomor; ?>" nama="nomor" type="text" id="nomor" disabled="" required readonly>  
                         </td>
                         </tr>
 
                         <!-- <input type="text" class="form-control" id="nomor" placeholder="" value="<?php echo $rows->nomor; ?>" name="nomor" required readonly> -->
-                      <!-- <?php endforeach; ?> -->
+                      <!-- <?php endforeach; ?>   -->
                         <!-- <input type="text" class="form-control" id="nomor" name="nomor" disabled="" value="<?php echo $rows->nomor; ?>" required readonly> -->
                     </div>
                   </div>
@@ -292,6 +289,7 @@
     $(document).ready(function() {
       $("#id_layanan").change(function() {
         document.getElementById("kode").value = $(this).find('option:selected').attr('data-price');
+        document.getElementById("kode1").value = $(this).find('option:selected').attr('data-price');
       });
       $("#id_antrian").change(function() {
         document.getElementById("nomor").value = $(this).find('option:selected').attr('data-price1');

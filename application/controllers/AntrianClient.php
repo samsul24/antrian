@@ -20,25 +20,26 @@ class AntrianClient extends CI_Controller
         $data['antrian'] = json_decode($this->curl->simple_get($this->API));
         $data['antrian1'] = json_decode($this->curl->simple_get($this->API2));
         $data['title'] = "Antrian";
-        // $this->load->view('header0');
-        // $this->load->view('bar');
         $this->load->view('user/antrian', $data);
-        // $this->load->view('footer');
     }
     public function post_process()
     {
         $data = array(
-            'tanggal'         => $this->input->post('kategori'),
-            'nama_layanan'         => $this->input->post('harga'),
-            'kode'         => $this->input->post('kode'),
-            'nomor'          => $this->input->post('nomor'),
+            'nomor'           => $this->input->post('nomor'),
+            'tanggal'         => $this->input->post('tanggal'),
+            'id_layanan'    => $this->input->post('id_layanan'),
+            'status'    => 1
         );
-        $insert =  $this->curl->simple_post($this->API, $data);
-        if ($insert) {
-            $this->session->set_flashdata('result', 'Data Antrian Berhasil Ditambahkan');
-        } else {
-            $this->session->set_flashdata('result', 'Data Antrian Gagal Ditambahkan');
-        }
+        $insert =  $this->curl->simple_post($this->API2, $data);
+        print_r($insert);
+        exit;
+        // if ($insert) {
+        //     print'data berhasil';
+        //     $this->session->set_flashdata('result', 'Data Antrian Berhasil Ditambahkan');
+        // } else {
+        //     print'data gagal';
+        //     $this->session->set_flashdata('result', 'Data Antrian Gagal Ditambahkan');
+        // }
         redirect('Antrianclient');
     }
 }
