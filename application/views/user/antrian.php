@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -82,8 +81,7 @@
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
             <h3>NO ANTRIAN SAAT INI</h3>
-          <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian','id_instansi', 11)->num_rows(); 
- ?>
+          <!-- <h1 style="margin-top: 5px;"><?php echo $this->db->get('antrian','id_instansi', 11)->num_rows(); ?> -->
 </h1>
           </div>
       </div>
@@ -202,7 +200,11 @@
                       <?php
                       $i="001";
                       foreach ($antrian1 as $rows) : ?>
-                      <input type="text" id="nomor" id="kode1" name="nomor" class="form-control" value="<?php echo $i++; ?>" placeholder="" required="" style="width: 20%;margin-right: 67px;" >
+                      <input type="text" name="kode1" id="kode1" value="" disabled="" class="form-control" style="width: 20%;margin-right: 67px;">
+                      <input type="hidden" name="kode" id="kode" value="" class="form-control">
+                      <input type="hidden" name="nomor" value="<?php echo $i++; ?>" >
+                     
+                      <!-- <input type="text" id="nomor" id="kode1" name="nomor" class="form-control" value="<?php echo $i++; ?>" placeholder="" required="" style="width: 20%;margin-right: 67px;" > -->
 
                         <!-- <input value="00<?php echo $i++; ?>"class="form-control" nama="nomor" type="text" id="nomor" disabled="" style="width: 90%;margin-right: 67px;"required readonly> -->
                         <tr><td></td><td>
