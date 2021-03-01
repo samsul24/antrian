@@ -25,21 +25,21 @@ class Login extends CI_Controller
     $user = htmlspecialchars($this->input->post('user', true));
     $password = htmlspecialchars($this->input->post('password', true));
     $check = $this->login_model->login($user, $password);
-    
     if ($check) {
-        $this->session->set_userdata('id_user', $check->id_user);
-        $this->session->set_userdata('username', $check->username);
-        $this->session->set_userdata('id_user_role', $check->id_user_role);
-        $this->session->set_userdata('id_instansi', $check->id_instansi); 
+      $this->session->set_userdata('id_user', $check->id_user);
+      $this->session->set_userdata('username', $check->username);
+      $this->session->set_userdata('id_user_role', $check->id_user_role);
+      $this->session->set_userdata('id_instansi', $check->id_instansi); 
       
-        if ($this->session->userdata('id_user_role') == 1) {
-          redirect('adminclient');
-        }else if($this->session->userdata('id_user_role') == 3) {
-          redirect('antrianclient');
-        }else{
+      if ($this->session->userdata('id_user_role') == 1) {
+        redirect('adminclient');
+      }else if($this->session->userdata('id_user_role') == 3) {
+        redirect('antrianclient');
+      }else{
         return false;
       }
     }
+    
     else {
       $this->session->set_flashdata('result', 'Login gagal');
       redirect('login');
