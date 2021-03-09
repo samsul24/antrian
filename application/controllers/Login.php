@@ -38,12 +38,10 @@ class Login extends CI_Controller
       }else{
         return false;
       }
-    }
-    
-    else {
+    }else {
       $this->session->set_flashdata('result', 'Login gagal');
       redirect('login');
-
+      
     }
   }
     
